@@ -1,0 +1,831 @@
+[
+    {
+        "numberOrder": 1,
+        "ipa": "ˈber.li",
+        "word": "barely",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "adv",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "by the smallest amount",
+                        "sentences": [
+                            {
+                                "example": "I have barely enough to send my parents this month",
+                                "enRemarkableWord": "barely enough",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "There was barely enough room for two of them",
+                                "enRemarkableWord": "was barely enough",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "She’s barely 15 to get married with you.",
+                                "enRemarkableWord": "barely 15",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 2,
+        "ipa": "ˈb",
+        "word": "beat",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "defeat",
+                        "synonyms": [],
+                        "details": "to defeat or do better",
+                        "sentences": [
+                            {
+                                "example": "Simon always beat me at tennis",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "She has beaten her own record",
+                                "enRemarkableWord": "beaten",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "Vietnam beat Thailand",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "to beat something that is going to happen is to take action before the thing happens",
+                        "sentences": [
+                            {
+                                "example": "I always go to work early to beat/avoid the rush",
+                                "enRemarkableWord": "beat/avoid",
+                                "vnExplanation": "tôi luôn đi làm sớm để tránh kẹt xe",
+                                "vnRemarkableWord": "tránh"
+                            },
+                            {
+                                "example": "Let's try to beat the traffic by leaving early in the morning",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "To beat the issue, you should  do it carefully",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "hit",
+                        "synonyms": [],
+                        "details": "tp hit repeatedly",
+                        "sentences": [
+                            {
+                                "example": "She was beaten to death",
+                                "enRemarkableWord": "beaten",
+                                "vnExplanation": "cô ấy bị đánh cho đến chết",
+                                "vnRemarkableWord": "đánh"
+                            },
+                            {
+                                "example": "They saw him beat his dog with a stick",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "mix",
+                        "synonyms": [],
+                        "details": "to mix something repeatly using a utensil such as a spoon or whisk",
+                        "sentences": [
+                            {
+                                "example": "To make an omelette you first beat the eggs.",
+                                "enRemarkableWord": "beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "extremely tired",
+                        "sentences": [
+                            {
+                                "example": "You’ve been working too hard - you look dead beat/beat",
+                                "enRemarkableWord": "dead beat/beat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 3,
+        "ipa": "",
+        "word": "bad-tempered",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "a bad tempered person becomes angry and annoyed easily",
+                        "sentences": [
+                            {
+                                "example": "She's very bad-tempered in the morning",
+                                "enRemarkableWord": "bad-tempered",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "I usually become bad-tempered when somene critisizes me",
+                                "enRemarkableWord": "bad-tempered",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 4,
+        "ipa": "",
+        "word": "narrow",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "small width",
+                        "synonyms": [],
+                        "details": "having a small distance from one side to the other, especially in comparison with the length",
+                        "sentences": [
+                            {
+                                "example": "The little village has a very narrow street",
+                                "enRemarkableWord": "bad-tempered",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "only just",
+                        "synonyms": [],
+                        "details": "a narrow result is one that could easily have been different because the amount by which someone failed or succeeded was very small",
+                        "sentences": [
+                            {
+                                "example": "The opposition had a narrow defeat",
+                                "enRemarkableWord": "narrow",
+                                "vnExplanation": "đối thủ nhận thất bại sít sao",
+                                "vnRemarkableWord": "sít sao"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "less side",
+                        "synonyms": [],
+                        "details": "to become less wide or to make something less wide",
+                        "sentences": [
+                            {
+                                "example": "The road narrows after the bridge",
+                                "enRemarkableWord": "narrows",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "He narrowed his eyes in suspicion",
+                                "enRemarkableWord": "narrowed",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "only just",
+                        "synonyms": [],
+                        "details": "a narrow result is one that could easily have been different because the amount by which someone failed or succeeded was very small",
+                        "sentences": [
+                            {
+                                "example": "The opposition had a narrow defeat",
+                                "enRemarkableWord": "narrow",
+                                "vnExplanation": "đối thủ nhận thất bại sít sao",
+                                "vnRemarkableWord": "sít sao"
+                            }
+                        ]
+                    }                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 10,
+        "ipa": "ˈʌð.ɚ.waɪz",
+        "word": "otherwise",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "conjunction",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["if not"],
+                        "details": "used after an order or suggestion to show what the result will be if you do not follow that order or suggestion",
+                        "sentences": [
+                            {
+                                "example": "I'd better write it down, otherwise/if not I'll forget it",
+                                "enRemarkableWord": "otherwise/if not",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            },
+                            {
+                                "example": "Call home, otherwise/if not you parents will start to worry",
+                                "enRemarkableWord": "otherwise/if not",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 20,
+        "ipa": "ˈkriː.mi",
+        "word": "creamy",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "like cream or contain cream",
+                        "sentences": [
+                            {
+                                "example": "The chocolate mousse was smooth and creamy",
+                                "enRemarkableWord": "creamy",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "thick and smooth, like cream",
+                        "sentences": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 30,
+        "ipa": "ˈruː.stɚ",
+        "word": "rooster",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "n - c",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "an adult male chicken",
+                        "sentences": [
+                            {
+                                "example": "I heard a rooster crow",
+                                "enRemarkableWord": "rooster",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 40,
+        "ipa": "ˈnɑː.t̬i",
+        "word": "naughty",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "badly behaved",
+                        "synonyms": [],
+                        "details": "when children are naughty or their behaviour is naughty, they behave badly or do not do what they are told to do",
+                        "sentences": [
+                            {
+                                "example": "Our boss treats us all like naughty children",
+                                "enRemarkableWord": "naughty",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 50,
+        "ipa": "wɪðˈhoʊld",
+        "word": "withhold",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "to refuse to give something or to keep back something",
+                        "sentences": [
+                            {
+                                "example": "The government is planning to withhold benefit payments from single mothers who refuse to name the father of their child",
+                                "enRemarkableWord": "withhold",
+                                "vnExplanation": "Chính phủ đang lên kế hoạch giữ lại/từ chối các khoản trợ cấp từ những người mẹ đơn thân từ chối nêu tên của chủa con họ",
+                                "vnRemarkableWord": "giữ lại/từ chối"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 60,
+        "ipa": "ˈreɪŋ.koʊt",
+        "word": "raincoast",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "n - c",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "a coat that protects the wearer against rain",
+                        "sentences": [
+                            {
+                                "example": "a plastic raincoat",
+                                "enRemarkableWord": "raincoat",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 70,
+        "ipa": "mæd",
+        "word": "mad",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "mentally ill",
+                        "synonyms": [],
+                        "details": "a word to describe a person who has a mental illness, which was used by doctors in the past but is now offensive",
+                        "sentences": []
+                    },
+                    {
+                        "code": "silly",
+                        "synonyms": [],
+                        "details": "extremely silly or stupid",
+                        "sentences": [
+                            {
+                                "example": "He must be mad spending all that money on a coat",
+                                "enRemarkableWord": "mad",
+                                "vnExplanation": "anh ta phải điên lắm mới tiêu hết số tiền vào một chiếc áo khoác",
+                                "vnRemarkableWord": "điên"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "angry",
+                        "synonyms": [],
+                        "details": "very angry or annoyed",
+                        "sentences": [
+                            {
+                                "example": "He’s always complaining and it makes me so mad",
+                                "enRemarkableWord": "mad",
+                                "vnExplanation": "Anh ta luôn luôn phàn nàn và nó làm tôi phát điên",
+                                "vnRemarkableWord": "phát điên"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 160,
+        "ipa": "ˈiː.kwə.laɪz",
+        "word": "equalize",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "to make things or people equal",
+                        "sentences": [
+                            {
+                                "example": "Vietnam equalized the scoring five minute after",
+                                "enRemarkableWord": "equalized",
+                                "vnExplanation": "Đội tuyển Việt Nam đã cân bằng tỉ số sau đó 5 phút",
+                                "vnRemarkableWord": "cân bằng"
+                            },
+                            {
+                                "example": "You should equalize your emotion while make a communication",
+                                "enRemarkableWord": "equalize",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    },
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "to make laws or treatment the same for all people or companies in a group or place",
+                        "sentences": [
+                            {
+                                "example": "equalize taxes",
+                                "enRemarkableWord": "equalize",
+                                "vnExplanation": "cân bằng thuế",
+                                "vnRemarkableWord": "cân bằng"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 211,
+        "ipa": "kənˈsen.səs",
+        "word": "consensus",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "n",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["agreement", "like-mindedness", "accord"],
+                        "details": "a generally accepted opinion or decision among a group of people; wide agreement",
+                        "sentences": [
+                            {
+                                "example": "The general consensus in the office is that he can't do his job",
+                                "enRemarkableWord": "The general consensus",
+                                "vnExplanation": "Sự đồng thuâ chung trong văn phòng là anh ta không thể làm công việc của anh ấy",
+                                "vnRemarkableWord": "sự đồng thuận chung"
+                            },
+                            {
+                                "example": "Could we reach a consensus on this matter? Let's take a vote!",
+                                "enRemarkableWord": "reach a consensus on this matter",
+                                "vnExplanation": "Chúng ta có thể tiến tới một sự đồng thuận về ấn đề này khng?",
+                                "vnRemarkableWord": "tiến tới một sự đồng thuận"
+                            },
+                            {
+                                "example": "We try to build a consensus on the need improve the city's schools",
+                                "enRemarkableWord": "build a consensus on",
+                                "vnExplanation": "Họ đang cố gắng xây dưn sự đồng thuận về việc nâng cao trường học của thành phố",
+                                "vnRemarkableWord": "xây dựng một sự đồng thuận"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 212,
+        "ipa": "rɪˈteɪn",
+        "word": "retain",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["withhold", "maintain", "keep up"],
+                        "details": "to keep or continue to have something; especially a position or money or control of something",
+                        "sentences": [
+                            {
+                                "example": "She has lost her batle to retain control of the company",
+                                "enRemarkableWord": "retain control",
+                                "vnExplanation": "Cô ấy đã thua trong cuộc chiến giữ quyền kiểm soát công ty",
+                                "vnRemarkableWord": "giữ quyền kiểm soát"
+                            },
+                            {
+                                "example": "He succeeded in retaining his lead in the second half of the race",
+                                "enRemarkableWord": "retaining",
+                                "vnExplanation": "Anh ấy thành công trong việc giữ vị trí đứng đầu trong nửa sau cuộc đua",
+                                "vnRemarkableWord": "giữ"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "hr",
+                        "synonyms": [],
+                        "details": "to continue employ people in a company or oganization",
+                        "sentences": [
+                            {
+                                "example": "Recruiting and retaining good staff will be among his priorities",
+                                "enRemarkableWord": "retaining",
+                                "vnExplanation": "Tuyền dụng và giữ chân nhân viên giỏi sẽ là một trong những mục tiêu được ưu tiên của anh ấy",
+                                "vnRemarkableWord": "giữ chân"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "to keep a record, document, etc. that might be needed in the future",
+                        "sentences": [
+                            {
+                                "example": "Please retain your receipt for future reference",
+                                "enRemarkableWord": "retain",
+                                "vnExplanation": "Vui lòng giữ lại công thức của bạn",
+                                "vnRemarkableWord": "giữ lại"
+                            }
+                        ]
+                    }
+
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 213,
+        "ipa": "kənˈtem.pə.rer.i",
+        "word": "comtemporary",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "existing or happening now, and therefore seeming modern",
+                        "sentences": [
+                            {
+                                "example": "I wanted to update my kitchen and put in something more contemporary",
+                                "enRemarkableWord": "contemporary",
+                                "vnExplanation": "Tôi muốn nâng cấp nh bếp cu mình và bỏ vào một s thứ hiện đa hơn",
+                                "vnRemarkableWord": "hiện đại"
+                            },
+                            {
+                                "example": "We have have been experience new trends and cultures in our contemporary society",
+                                "enRemarkableWord": "contemporary",
+                                "vnExplanation": "Chúng tôi trải nghiệm xu hướng và văn hóa ới trong xã hội đương đại",
+                                "vnRemarkableWord": "đương đại"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "of same period",
+                        "synonyms": ["concurrent", "coexisting", "simultaneous"],
+                        "details": "belonging to the same period, or to a stated period in the past; existing or occurring at the same time",
+                        "sentences": [
+                            {
+                                "example": "Almost all of the contemporary accounts of the events have been lost",
+                                "enRemarkableWord": "contemporary",
+                                "vnExplanation": "",
+                                "vnRemarkableWord": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "n",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": [],
+                        "details": "someone living during the same period as someone else; a person who is of the same age as you",
+                        "sentences": [
+                            {
+                                "example": "Was he a contemporary of Son Tung?",
+                                "enRemarkableWord": "contemporary",
+                                "vnExplanation": "Anh ấy c phải người cùng thời với Sơn Tùng không?",
+                                "vnRemarkableWord": "Người cùng thời"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 214,
+        "ipa": "pæn.əˈsiː.ə",
+        "word": "panacea",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "n",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["redemy", "magic formular", "perfect solution"],
+                        "details": "something that will be solve all problems or illnesses",
+                        "sentences": [
+                            {
+                                "example": "Technology is not a panacea for our problems",
+                                "enRemarkableWord": "panacea",
+                                "vnExplanation": "Công ngh không phải là thuốc chữa bách bệnh cho chúng ta",
+                                "vnRemarkableWord": "thuốc chữa bách bệnh"
+                            },
+                            {
+                                "example": "It is believed that music is the panacea for all kinds of depression and illnesses",
+                                "enRemarkableWord": "panacea",
+                                "vnExplanation": "Người ta tin răng âm nhạc là thuốc chư bách bệnh cho mọi loại trầm cảm và bệnh tật",
+                                "vnRemarkableWord": "thuốc chữa bách bệnh"
+                            },
+                            {
+                                "example": "Books are not meant to be a panacea for an illnesses or loss",
+                                "enRemarkableWord": "panacea",
+                                "vnExplanation": "sách không phải là thuốc chữa bách bệnh cho bệnh tật hay mất mát",
+                                "vnRemarkableWord": "thuốc chữa bách bệnh"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 215,
+        "ipa": "ˈkɑːn.sən.treɪt",
+        "word": "concentrate",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "v",
+                "meanings": [
+                    {
+                        "code": "give attention",
+                        "synonyms": ["pay attention", "observe", "give heed", "focus"],
+                        "details": "to direct your attention or your effort towards a particular activity, subject or problem; focus all one's attention on a particular activity",
+                        "sentences": [
+                            {
+                                "example": "Come one, concentrate! We don't have all day to do it.",
+                                "enRemarkableWord": "concentrate",
+                                "vnExplanation": "Tập trung vào, chúng ta không có cả ngày để làm việc này đầu ",
+                                "vnRemarkableWord": "Tập trung"
+                            },
+                            {
+                                "example": "I can't concentrate ( = focus on ) my work with all that noise",
+                                "enRemarkableWord": "concentrate",
+                                "vnExplanation": "tôi không thể tập trung vào công việc với những tiếng ồn này",
+                                "vnRemarkableWord": "tập trung"
+                            },
+                            {
+                                "example": "In the dry season, animals tend to concentrate in the areas where there is water.",
+                                "enRemarkableWord": "concentrate",
+                                "vnExplanation": "vào mùa khô, động vật có xu hướng tập trung về những khu vực có nướ",
+                                "vnRemarkableWord": "tập trung"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "come together",
+                        "synonyms": [],
+                        "details": "to bring or come together in a large number or amount in one particular area",
+                        "sentences": [
+                            {
+                                "example": "Most of the country's population is concentrated in the north.",
+                                "enRemarkableWord": "concentrated",
+                                "vnExplanation": "hầu hết dân số được tập trung ở phía bắc",
+                                "vnRemarkableWord": "tập trung"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 216,
+        "ipa": "ʌn.dɚˈprɪv.əl.ɪdʒd",
+        "word": "underprivileged",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "a",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["inpoverished", "deprived", "destitue"],
+                        "details": "without the money, possessions, education, opportunities, etc. than the advantage person has; lacking essential things for a comfortable life ",
+                        "sentences": [
+                            {
+                                "example": "Children from an underprivileged familybackground are statiscially more likely to become involved in crime",
+                                "enRemarkableWord": "underprivileded",
+                                "vnExplanation": "Những tr em c hoàn cảnh khó khn có khả năng dính líu đến tội phạm",
+                                "vnRemarkableWord": "hoàn cảnh khó khăn"
+                            },
+                            {
+                                "example": "Many affluent people in this community come from underprivileged",
+                                "enRemarkableWord": "concentrate",
+                                "vnExplanation": "tôi không thể tập trung vào công việc với những tiếng ồn này",
+                                "vnRemarkableWord": "tập trung"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "numberOrder": 217,
+        "ipa": "əˈnæl.ə.dʒi",
+        "word": "analogy",
+        "covered": true,
+        "wordTypes": [
+            {
+                "type": "n",
+                "meanings": [
+                    {
+                        "code": "",
+                        "synonyms": ["inpoverished", "deprived", "destitue"],
+                        "details": "without the money, possessions, education, opportunities, etc. than the advantage person has; lacking essential things for a comfortable life ",
+                        "sentences": [
+                            {
+                                "example": "Children from an underprivileged familybackground are statiscially more likely to become involved in crime",
+                                "enRemarkableWord": "underprivileded",
+                                "vnExplanation": "Những tr em c hoàn cảnh khó khn có khả năng dính líu đến tội phạm",
+                                "vnRemarkableWord": "hoàn cảnh khó khăn"
+                            },
+                            {
+                                "example": "Many affluent people in this community come from underprivileged",
+                                "enRemarkableWord": "concentrate",
+                                "vnExplanation": "tôi không thể tập trung vào công việc với những tiếng ồn này",
+                                "vnRemarkableWord": "tập trung"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

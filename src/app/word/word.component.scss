@@ -1,0 +1,21 @@
+
+.word {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: 1px solid #c9bfbf;
+
+    &__type {
+        &:nth-child( n + 2 ) {
+            border-top: 1px solid #ccc;
+        }
+    }
+}
+
+.sentence {
+    .bullet-icon {
+
+    }
+}
+
+.verified-icon {
+    color: green;
+}
