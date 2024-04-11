@@ -3,8 +3,63 @@
 @tailwind components;
 @tailwind utilities;
 @import "@angular/cdk/overlay-prebuilt.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+    --text-color-main: rgb(35, 61, 99);
+}
 
 html, body {
     font-size: 16px;
+    font-family: "Inter", sans-serif;
+    color: var(--text-color-main);
     line-height: 23px;
 }
+
+.main-page-size {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    outline: none;
+}
+
+.truncate-l {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+
+    &.truncate-2l {
+        -webkit-line-clamp: 2;
+    }
+
+    &.truncate-1l {
+        -webkit-line-clamp: 1;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #a4a3a3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+

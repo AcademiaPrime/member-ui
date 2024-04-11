@@ -1,0 +1,53 @@
+<article
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    class="rounded-md border border-zinc-300 shadow-xl overflow-hidden cursor-pointer"
+    (mouseover)="onToggleDetailPopup(true)"
+    (mouseleave)="onToggleDetailPopup(false)"
+>
+    <!--  Start :: Thumbnail  -->
+    <div>
+        <img alt="course" class="max-w-full" [src]="course().image">
+    </div>
+    <!--  End :: Thumbnail  -->
+
+
+    <!--  Start :: Text Info  -->
+    <div class="py-5 px-6">
+        <p class="mb-3 px-2 py-1 inline-block rounded bg-sky-100 font-medium text-blue-500">All Levels</p>
+        <h5 class="text-xl font-bold">The Business Intelligence Analyst Course 2021</h5>
+        <p class="mb-4 text-base font-semibold text-gray-500">Jose Portilla</p>
+        <div class="mb-4 flex text-md">
+            <span class="font-bold">4.4</span>
+            <div class="mx-2 text-amber-400">
+                <i class="mr-px bi bi-star-fill"></i>
+                <i class="mr-px bi bi-star-fill"></i>
+                <i class="mr-px bi bi-star-fill"></i>
+                <i class="mr-px bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+            </div>
+            <span class="text-gray-500 font-semibold">( 20,230 )</span>
+        </div>
+
+        <div class="flex justify-between items-center text-xl">
+            <span class="font-semibold">12.99 <span class="text-sm italic font-medium line-through text-gray-500">129.99</span></span>
+            <button class="w-12 h-12 rounded-full border border-zinc-300 shadow-lg"><i class="bi bi-heart"></i></button>
+        </div>
+    </div>
+    <!--  End :: Text Info  -->
+
+</article>
+
+<ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="openDetail()"
+    [cdkConnectedOverlayPositions]="connectedPosition()"
+>
+    <div
+        (mouseover)="onToggleDetailPopup(true)"
+        (mouseleave)="onToggleDetailPopup(false)"
+    >
+        <app-course-detail [course]="course()"></app-course-detail>
+    </div>
+</ng-template>

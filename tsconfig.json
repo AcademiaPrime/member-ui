@@ -22,7 +22,15 @@
         "lib" : [
             "ES2022",
             "dom"
-        ]
+        ],
+        "baseUrl" : "./src",
+        "paths" : {
+            "@mock/*" : ["mockup/*"],
+            "@server/*" : ["fabricate-server/*"],
+            "@model/*": ["models/*"],
+            "@states/*": ["app/states/*"],
+
+        }
     },
     "angularCompilerOptions" : {
         "enableI18nLegacyMessageIdFormat" : false,
@@ -30,11 +38,5 @@
         "strictInputAccessModifiers" : true,
         "strictTemplates" : true
     },
-    "baseUrl" : ".",
-    "paths" : {
-        "@fake-data/*" : [
-            "src/mockup/*"
-        ],
-        "@model/*": ["src/models/*"]
-    }
+
 }

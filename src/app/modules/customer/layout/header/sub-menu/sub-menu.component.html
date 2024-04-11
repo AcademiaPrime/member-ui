@@ -1,0 +1,31 @@
+<ul
+    class="w-80 py-4 bg-white rounded-md border border-zinc-300 leading-8 sub-menu"
+    [class.w-80]="subMenu()[0].children.length > 0"
+    [class.w-48]="subMenu()[0].children.length === 0"
+>
+    @for (menu of subMenu(); track menu) {
+        <li
+            class="px-6 relative"
+            (mouseover)="onOpenSubSubMenu(menu)"
+            (mouseleave)="onOpenSubSubMenu(null)">
+            <div class="flex items-center justify-between cursor-pointer hover:text-red-500" >
+                <span>{{menu.title}}</span>
+
+                @if ( menu.children.length > 0 ) {
+                    <span class="text-xs"><i class="bi bi-chevron-right"></i></span>
+                }
+            </div>
+
+            @if ( menu.children.length > 0 ) {
+                <ul
+                    [@openClosed]="openingSubMenu()?.title === menu.title ? menuState.OPEN : menuState.CLOSED"
+                    class="invisible absolute top-0 left-full w-80 py-4 bg-white rounded-md border border-zinc-300"
+                >
+                    @for ( subSubMenu of menu.children; track subSubMenu ) {
+                        <li class="px-6">{{subSubMenu.title}}</li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>
