@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-                "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -95,11 +95,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "2daf3e0d-5332-4532-82e6-878320d72ec6"
+    "analytics": "2daf3e0d-5332-4532-82e6-878320d72ec6",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
