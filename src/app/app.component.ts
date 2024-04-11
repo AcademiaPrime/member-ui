@@ -36,6 +36,7 @@ export class AppComponent implements OnInit{
     ) {}
 
     ngOnInit() {
+        console.log(`app init`)
     }
 
     private remarkStrongWord(sentence: string, strongWord: string): string {
