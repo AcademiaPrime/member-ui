@@ -2,10 +2,12 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // Models
-import {Word} from '@model/word';
+import {Word} from '../models/word';
 // Fake Data
-import {ModalService} from './components/modal/modal-service.service';
-import {Store} from '@ngrx/store';
+import FakeData from './../mockup/words.json';
+import {ModalService} from "./components/modal/modal-service.service";
+import {Store} from "@ngrx/store";
+import {LoginActions} from "@states/authorization/authorization.action";
 
 
 @Component({
