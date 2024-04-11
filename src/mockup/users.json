@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "username": "thomastran",
+        "password": "1234qwer",
+        "firstName": "Trần Lê Anh",
+        "lastName": "Vũ",
+        "avatar": "https://lh3.googleusercontent.com/ogw/AF2bZyjy6C_xZGsB39e2JnyKTm-WzR1D58XoAEfgXFLB5A=s32-c-mo",
+        "registerDate": "2024/03/03",
+        "email": "tranvudpqn123@gmail.com",
+        "socialMedia": {
+            "facebook": "",
+            "twister": "",
+            "instagram": "",
+            "linkedin": "",
+            "youtube": ""
+        },
+        "phoneNumber": "(91) 7547 622250",
+        "cart": [
+            {
+                "id": 1,
+                "title": "Java Programming Masterclass for Software Developers",
+                "price": 104.99,
+                "promoPrice": 76.99
+            },
+            {
+                "id": 2,
+                "title": "Java Programming Masterclass for Software Developers",
+                "price": 104.99,
+                "promoPrice": 76.99
+            }
+        ]
+    }
+]

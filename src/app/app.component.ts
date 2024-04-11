@@ -1,16 +1,13 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-// Components
-import {WordComponent} from './word/word.component';
 // Models
 import {Word} from '../models/word';
 // Fake Data
 import FakeData from './../mockup/words.json';
-import {ModalComponent} from "./components/modal/modal.component";
 import {ModalService} from "./components/modal/modal-service.service";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {OpenCloseComponent} from "./pages/angular-demo/animation/open-close/open-close.component";
+import {Store} from "@ngrx/store";
+import {LoginActions} from "@states/authorization/authorization.action";
 
 
 @Component({
@@ -33,24 +30,12 @@ export class AppComponent implements OnInit{
 
     words: Word[] = [];
 
-    constructor(private modalService: ModalService) {}
-    ngOnInit() {
-        const sortedWords = FakeData.sort((a: Word, b: Word) => a.numberOrder - b.numberOrder);
-        for ( let word of sortedWords ) {
-            for (let wordType of word.wordTypes) {
-                for (let meaning of wordType.meanings) {
-                    meaning.sentences = meaning.sentences.map(item => {
-                        return {
-                            ...item,
-                            example: this.remarkStrongWord(item.example, item.enRemarkableWord),
-                            vnExplanation: this.remarkStrongWord(item.vnExplanation, item.vnRemarkableWord),
-                        };
-                    })
-                }
-            }
-        }
+    constructor(
+        private modalService: ModalService,
+        private store: Store
+    ) {}
 
-        this.words = sortedWords;
+    ngOnInit() {
     }
 
     private remarkStrongWord(sentence: string, strongWord: string): string {

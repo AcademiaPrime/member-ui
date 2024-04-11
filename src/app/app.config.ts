@@ -1,14 +1,29 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
+import {provideRouter} from '@angular/router';
 
-import { routes } from './app.routes';
-import {provideAnimations} from "@angular/platform-browser/animations";
-import { provideStore } from '@ngrx/store';
+import {routes} from './app.routes';
+import {provideState, provideStore} from '@ngrx/store';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {counterReducer} from "./states/counter/counter.reducer";
+import {cartFeature, cartReducer} from "./states/cart/cart.reducer";
+import {HttpClientModule} from '@angular/common/http';
+import {userFeature} from './states/authorization/authorization.reducer';
+import {provideEffects} from "@ngrx/effects";
+import {AuthorizationEffect} from "./states/authorization/authorization.effect";
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
 
 export const appConfig: ApplicationConfig = {
-  providers: [
+    providers: [
+    importProvidersFrom(HttpClientModule),
     provideRouter(routes),
-    provideAnimations(),
-    provideStore()
+    provideAnimationsAsync(),
+    provideStore(),
+    provideState({ name: 'counter', reducer: counterReducer }),
+    // provideState({name: 'cart', reducer: cartReducer}),
+    provideState(cartFeature),
+    provideState(userFeature),
+    provideEffects(AuthorizationEffect),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
 ]
 };
