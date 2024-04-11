@@ -1,0 +1,135 @@
+<header class="sticky top-0 right-0 left-0 z-50 bg-white">
+    <!--  Start :: Header Top  -->
+    <div class="mx-auto h-12 max-w-screen-xl flex items-center justify-between text-sm">
+        <div class="flex">
+            <span class="mr-10 font-medium text-gray-500"><i class="mr-2 bi bi-telephone"></i>0123 456 789</span>
+            <span class="font-medium text-gray-500"><i class="mr-2 bi bi-envelope"></i>thomas.tran&#64;pal.net.vn</span>
+        </div>
+
+        <div class="flex items-center">
+            <span class="mr-8"><i class="bi bi-moon-stars"></i></span>
+
+            @if ( !user() ) {
+                <a href="#" class="mr-8 font-medium text-gray-500"><i class="mr-2 bi bi-door-closed"></i><span class="hover:text-red-500">Login</span></a>
+                <a href="#" class="font-medium text-gray-500"><i class="mr-2 bi bi-person"></i><span class="hover:text-red-500">Register</span></a>
+            } @else {
+                <button class="flex items-center">
+                    <img
+                        class="mr-2 w-8 h-8 border border-zinc-300 rounded-full"
+                        [src]="user()?.avatar"
+                        alt="avatar">
+                    <span>{{user()?.username}}</span>
+                </button>
+            }
+
+        </div>
+    </div>
+    <div class="border-b border-zinc-300"></div>
+    <!--  End :: Header Top  -->
+
+    <!--  Start :: Header Bottom  -->
+    <div class="mx-auto py-5 max-w-screen-xl flex items-center justify-between">
+        <a href="#">
+            <img src="https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/logo.png" alt="logo">
+        </a>
+
+        <nav>
+            <ul class="flex items-center">
+                @for (menu of menus(); track menu.title; let first = $first) {
+                    <li
+                        class="relative px-3"
+                        (mouseover)="onToggleOpenSubMenu(menu)"
+                        (mouseleave)="onToggleOpenSubMenu(null)">
+
+                        @if ( first ) {
+                            <div class="flex items-center">
+                                <button class="mr-3">{{menu.title}}<i class="ml-1 text-sm bi bi-chevron-down"></i></button>
+                                <form class="w-80">
+                                    <div class="flex px-4 py-2 rounded-md border border-zinc-300">
+                                        <input type="text" class="flex-1 text-sm" placeholder="Search for anything">
+                                        <button><i class="bi bi-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            @if ( openingSubMenu()?.title === menu.title ) {
+                                <div @openClosed class="absolute">
+                                    <app-sub-menu [subMenu]="menu.children"></app-sub-menu>
+                                </div>
+                            }
+                        }
+
+                        @if ( !first ) {
+                            @if ( menu.children.length > 0 ) {
+                                <button>{{menu.title}}<i class="ml-1 text-sm bi bi-chevron-down"></i></button>
+
+                                @if ( openingSubMenu()?.title === menu.title ) {
+                                    <div @openClosed class="absolute">
+                                        <app-sub-menu [subMenu]="menu.children"></app-sub-menu>
+                                    </div>
+                                }
+
+                            } @else {
+                                <button>{{menu.title}}</button>
+                            }
+                        }
+                    </li>
+                }
+
+                <li class="ml-8">
+                    <div class="relative">
+                        <button class="flex items-center justify-center">
+                            <i class="mr-1 bi bi-cart"></i>
+                            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-red-500 text-white font-semibold">{{course.length}}</span>
+                        </button>
+
+                        <div class="hidden absolute top-0 right-0 w-96 p-5 rounded border border-zinc-300 bg-white">
+                            <div class="grid grid-cols-1 gap-4 leading-5">
+                                <div class="flex pb-4 border-b">
+                                    <img class="mr-4 w-20 h-20 rounded" src="https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/small-img.jpg" alt="course">
+                                    <div>
+                                        <h6 class="w-60 truncate-l truncate-2l font-semibold">The Complete JavaScript Course 2021: From Zero to Expert!</h6>
+
+                                        <div class="text-sm">
+                                            <p class="text-gray-500">Kamran Ahmed</p>
+                                            <p class="font-semibold">$12.99<span class="ml-3 text-gray-500 line-through">$129.99</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex pb-4 border-b">
+                                    <img class="mr-4 w-20 h-20 rounded" src="https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/small-img.jpg" alt="course">
+                                    <div>
+                                        <h6 class="w-60 truncate-l truncate-2l font-semibold">The Complete JavaScript Course 2021: From Zero to Expert!</h6>
+
+                                        <div class="text-sm">
+                                            <p class="text-gray-500">Kamran Ahmed</p>
+                                            <p class="font-semibold">$12.99<span class="ml-3 text-gray-500 line-through">$129.99</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex pb-4 border-b">
+                                    <img class="mr-4 w-20 h-20 rounded" src="https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/small-img.jpg" alt="course">
+                                    <div>
+                                        <h6 class="w-60 truncate-l truncate-2l font-semibold">The Complete JavaScript Course 2021: From Zero to Expert!</h6>
+
+                                        <div class="text-sm">
+                                            <p class="text-gray-500">Kamran Ahmed</p>
+                                            <p class="font-semibold">$12.99<span class="ml-3 text-gray-500 line-through">$129.99</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-4">
+                                <span class="font-semibold">Total: $12.99<span class="ml-3 text-gray-500 line-through">$129.99</span></span>
+                            </div>
+
+                            <a href="#" class="w-full py-3 px-5 inline-block rounded border border-red-500 bg-red-500 hover:bg-white font-medium font-bold text-white text-center hover:text-red-500"><span class="mr-2">Go To Cart</span><i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--  End :: Header Bottom  -->
+
+</header>
