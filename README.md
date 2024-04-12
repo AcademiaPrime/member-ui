@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 To run docker build, please navigate to the member-ui directory first, then type the command  `docker build -t member-ui .`
 
 ## Run Container
-
+`docker run -d --name member-ui -p 9999:9999 member-ui` 

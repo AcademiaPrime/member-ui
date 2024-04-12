@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --serve-path /edu/ --port 9999 --disable-host-check --proxy-config proxy.conf.js",
-    "build": "ng build",
+    "start-production": "ng serve --host 0.0.0.0 --serve-path /edu/ --port 9999 --disable-host-check --proxy-config proxy.conf.js --configuration production",
+    "build": "ng build --base-href /edu/ --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
@@ -45,11 +46,6 @@
     "autoprefixer": "^10.4.17",
     "eslint": "^8.57.0",
     "jasmine-core": "~5.1.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "~5.2.2"
