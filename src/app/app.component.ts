@@ -26,7 +26,7 @@ import {LoginActions} from "@states/authorization/authorization.action";
     ]
 })
 export class AppComponent implements OnInit{
-    title = 'dictionary-proj';
+    title = 'member-ui';
 
     words: Word[] = [];
 
