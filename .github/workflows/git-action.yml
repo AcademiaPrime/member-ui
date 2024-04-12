@@ -1,0 +1,32 @@
+name: ci
+
+on:
+    push:
+        branches:
+            - 'develop'
+            - 'master'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
+
+            -   name: Setup Node.js
+                uses: actions/setup-node@v2
+                with:
+                    node-version: '21'
+
+            -   name: Install dependencies
+                run: npm install
+
+            -   name: Build Angular project
+                run: ng build --base-href /edu/ --configuration production
+
+            -   name: Archive artifacts
+                uses: actions/upload-artifact@v2
+                with:
+                    name: dist
+                    path: dist
+
