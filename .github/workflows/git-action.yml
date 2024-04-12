@@ -22,7 +22,7 @@ jobs:
                 run: npm install
 
             -   name: Build Angular project
-                run: ng build --base-href /edu/ --configuration production
+                run: npm run build -- --configuration=production
 
             -   name: Archive artifacts
                 uses: actions/upload-artifact@v2
