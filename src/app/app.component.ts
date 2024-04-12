@@ -1,13 +1,11 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, TemplateRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // Models
 import {Word} from '../models/word';
 // Fake Data
-import FakeData from './../mockup/words.json';
-import {ModalService} from "./components/modal/modal-service.service";
-import {Store} from "@ngrx/store";
-import {LoginActions} from "@states/authorization/authorization.action";
+import {ModalService} from './components/modal/modal-service.service';
+import {Store} from '@ngrx/store';
 
 
 @Component({
@@ -23,7 +21,8 @@ import {LoginActions} from "@states/authorization/authorization.action";
     styleUrl: './app.component.scss',
     providers: [
         ModalService
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit{
     title = 'member-ui';
@@ -46,8 +45,14 @@ export class AppComponent implements OnInit{
     openModal( modalTemplate: TemplateRef<any> ) {
         this.modalService.open(modalTemplate, { size: 'lg', title: 'Foo' })
             .subscribe(action => {
-                console.log('modal action: ', action)
-            })
+                console.log('modal action: ', action);
+            });
+    }
+
+
+    doSomething(): string {
+        console.log('do something');
+        return 'asdsad'
     }
 
 }

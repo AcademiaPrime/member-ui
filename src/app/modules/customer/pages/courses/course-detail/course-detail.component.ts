@@ -1,8 +1,8 @@
 import {Component, input} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../../states/app.state';
-import {Course} from "@model/course.interface";
-import {addCourse} from '../../../states/cart/cart.action';
+import {Course} from '@model/course.interface';
+import {AppState} from '@states/app.state';
+import {addCourse} from '@states/cart/cart.action';
 
 @Component({
   selector: 'app-course-detail',
