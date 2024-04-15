@@ -24,4 +24,4 @@ export const decreaseCourse = createAction(
 
 export const clearCart = createAction(
     ' [ Cart Component ] Clear Courses'
-)
+);

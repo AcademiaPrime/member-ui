@@ -8,6 +8,18 @@ export const CUSTOMER_ROUTES: Route[] = [
             {
                 path: 'login',
                 loadComponent: () => import('./pages/login/login.component').then(com => com.LoginComponent),
+            },
+            {
+                path: 'teachers',
+                loadComponent: () => import('./pages/teachers/teachers.component').then(com => com.TeachersComponent),
+            },
+            {
+                path: 'courses',
+                loadComponent: () => import('./pages/courses/courses.component').then(com => com.CoursesComponent),
+            },
+            {
+                path: 'course-detail',
+                loadComponent: () => import('./pages/course-detail/course-detail.component').then(com => com.CourseDetailComponent),
             }
         ]
     },

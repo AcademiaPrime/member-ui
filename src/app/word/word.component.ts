@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 // Models
 import {Word} from '../../models/word';
 
@@ -18,7 +18,7 @@ export class WordComponent implements OnInit{
     }
     _word: Word = new Word();
     makeToTesting = false;
-    wordForm!: any;
+    wordForm!: FormGroup;
 
     constructor(private formBuilder: FormBuilder) {
         this.wordForm = this.formBuilder.group({
@@ -34,7 +34,7 @@ export class WordComponent implements OnInit{
     }
 
     get wordInput(): FormControl {
-        return this.wordForm.get('word');
+        return this.wordForm.get('word') as FormControl;
     }
 
     onMakeToTesting() {
