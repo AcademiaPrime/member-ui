@@ -1,20 +1,18 @@
 import {Component, signal} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {selectCart, selectCourse} from '@states/cart/cart.selector';
 
 // Components
 import {SubMenuComponent} from './sub-menu/sub-menu.component';
 // Models
 import {Menu, MenuState} from '@model/menu.interface';
-import {cartFeature, CartState} from '@states/cart/cart.reducer';
+import {cartFeature} from '@states/cart/cart.reducer';
 // Animations
 import {openClosedAnimations} from './animation';
-import {AsyncPipe} from "@angular/common";
-import {AppState} from "@states/app.state";
-import {Course} from "@model/course.interface";
-import {User} from "@model/user.interface";
-import {userFeature} from "@states/authorization/authorization.reducer";
+import {AsyncPipe} from '@angular/common';
+import {AppState} from '@states/app.state';
+import {Course} from '@model/course.interface';
+import {User} from '@model/user.interface';
+import {userFeature} from '@states/authorization/authorization.reducer';
 
 
 @Component({

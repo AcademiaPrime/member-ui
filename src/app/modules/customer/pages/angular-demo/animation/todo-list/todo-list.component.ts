@@ -1,7 +1,7 @@
-import {Component, HostBinding} from '@angular/core';
-import {TodoItemComponent} from "../todo-item/todo-item.component";
-import {animate, keyframes, query, stagger, state, style, transition, trigger} from "@angular/animations";
-import {CommonModule} from "@angular/common";
+import {Component} from '@angular/core';
+import {TodoItemComponent} from '../todo-item/todo-item.component';
+import {animate, keyframes, query, stagger, state, style, transition, trigger} from '@angular/animations';
+import {CommonModule} from '@angular/common';
 
 @Component({
     selector: 'app-todo-list',

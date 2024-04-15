@@ -1,7 +1,7 @@
-import {Subject} from "rxjs";
-import {ComponentFactoryResolver, Inject, Injectable, Injector, TemplateRef} from "@angular/core";
-import {DOCUMENT} from "@angular/common";
-import {ModalComponent} from "./modal.component";
+import {Subject} from 'rxjs';
+import {ComponentFactoryResolver, Inject, Injectable, Injector, TemplateRef} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {ModalComponent} from './modal.component';
 
 @Injectable()
 export class ModalService {
@@ -12,7 +12,7 @@ export class ModalService {
         @Inject(DOCUMENT) private document: Document
     ) {}
 
-    open(content: TemplateRef<any>, options?: { size?: string; title?: string }) {
+    open(content: TemplateRef<unknown>, options?: { size?: string; title?: string }) {
         const modalComponentFactory = this.resolver.resolveComponentFactory(
             ModalComponent
         );

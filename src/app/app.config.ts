@@ -4,12 +4,12 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {provideState, provideStore} from '@ngrx/store';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {counterReducer} from "./states/counter/counter.reducer";
-import {cartFeature, cartReducer} from "./states/cart/cart.reducer";
+import {counterReducer} from './states/counter/counter.reducer';
+import {cartFeature} from './states/cart/cart.reducer';
 import {HttpClientModule} from '@angular/common/http';
 import {userFeature} from './states/authorization/authorization.reducer';
-import {provideEffects} from "@ngrx/effects";
-import {AuthorizationEffect} from "./states/authorization/authorization.effect";
+import {provideEffects} from '@ngrx/effects';
+import {AuthorizationEffect} from './states/authorization/authorization.effect';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 

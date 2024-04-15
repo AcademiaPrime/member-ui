@@ -47,7 +47,7 @@ export class CourseComponent {
         window.clearTimeout(this.timerRef());
 
         this.timerRef.set(window.setTimeout(() => {
-            this.openDetail.update(_ => open);
+            this.openDetail.update(() => open);
         }, 50));
         // const config = new OverlayConfig({
         //     positionStrategy: this.overlay.position().global().centerVertically().centerHorizontally(),

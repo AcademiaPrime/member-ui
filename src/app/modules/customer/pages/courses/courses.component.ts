@@ -16,8 +16,7 @@ import {CoursesService} from '../../../../services/courses.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesComponent implements OnInit{
-    // @ts-ignore
-    courses = signal<Course[]>(FakeCourses);
+    courses = signal<Course[]>(FakeCourses as Course[]);
 
     constructor(private coursesService: CoursesService) {
     }

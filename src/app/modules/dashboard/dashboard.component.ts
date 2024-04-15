@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {HeaderComponent} from "./layout/header/header.component";
-import {SidebarComponent} from "./layout/sidebar/sidebar.component";
-import {RouterOutlet} from "@angular/router";
-import {CardVisitComponent} from "./layout/card-visit/card-visit.component";
+import {HeaderComponent} from './layout/header/header.component';
+import {SidebarComponent} from './layout/sidebar/sidebar.component';
+import {RouterOutlet} from '@angular/router';
+import {CardVisitComponent} from './layout/card-visit/card-visit.component';
 
 @Component({
     selector: 'app-dashboard',

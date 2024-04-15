@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
+import {CommonModule} from '@angular/common';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -37,9 +37,4 @@ export class RegisterComponent {
         console.log('login info: ', this.loginForm.value);
     }
 
-}
-
-interface User {
-    username: string;
-    password: string;
 }

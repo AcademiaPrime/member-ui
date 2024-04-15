@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {OpenCloseComponent} from "./open-close/open-close.component";
-import {TodoListComponent} from "./todo-list/todo-list.component";
+import {OpenCloseComponent} from './open-close/open-close.component';
+import {TodoListComponent} from './todo-list/todo-list.component';
 
 @Component({
   selector: 'app-animation',

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType, OnInitEffects} from '@ngrx/effects';
 import {UserService} from '../../services/user.service';
-import {exhaustMap, map, catchError, EmptyError, of} from 'rxjs';
-import { LoginActions, LoginActionsKeys } from './authorization.action';
+import {exhaustMap, map, catchError} from 'rxjs';
+import { LoginActions } from './authorization.action';
 import {LocalStorageService} from '../../services/local-storage.service';
 import {User} from '@model/user.interface';
 import {Action} from '@ngrx/store';

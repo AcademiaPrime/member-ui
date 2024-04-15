@@ -25,4 +25,4 @@ export const openClosedAnimations = [
             animate(timing, style(hidden))
         ])
     ])
-]
+];

@@ -1,4 +1,4 @@
-import {Sentence} from "./sentence";
+import {Sentence} from './sentence';
 
 export interface Meaning {
     code: string,

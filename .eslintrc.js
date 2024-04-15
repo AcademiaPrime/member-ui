@@ -1,36 +1,46 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    'env': {
+        'browser': true,
+        'es2021': true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+    'extends': [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
-    "overrides": [
+    'overrides': [
         {
-            "env": {
-                "node": true
+            files: ['*.html'],
+            parser: '@angular-eslint/template-parser',
+            parserOptions: {
+                project: './tsconfig.app.json',
+                ecmaVersion: 2020,
+                sourceType: 'module',
             },
-            "files": [
-                ".eslintrc.{js,cjs}"
+            plugins: ['@angular-eslint/template'],
+        },
+        {
+            'env': {
+                'node': true
+            },
+            'files': [
+                '.eslintrc.{js,cjs}'
             ],
-            "parserOptions": {
-                "sourceType": "script"
+            'parserOptions': {
+                'sourceType': 'script'
             }
         }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    'parser': '@typescript-eslint/parser',
+    'parserOptions': {
+        'ecmaVersion': 'latest',
+        'sourceType': 'module'
     },
-    "plugins": [
-        "@typescript-eslint"
+    'plugins': [
+        '@typescript-eslint'
     ],
+    'rules': {
+        'quotes': ['error', 'single'],
+        'semi': ['error', 'always']
+    },
 
-    "rules": {
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"]
-    }
-}
+};
