@@ -27,7 +27,7 @@ import {PresentationComponent} from './components/presentation/presentation.comp
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit{
-    title = 'dictionary-proj';
+    title = 'member-ui';
 
     words: Word[] = [];
 

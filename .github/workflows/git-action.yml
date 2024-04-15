@@ -1,0 +1,66 @@
+name: ci
+
+on:
+    push:
+        branches:
+            - 'develop'
+            - 'master'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '21'
+
+            - name: Cache build artifacts
+              uses: actions/cache@v2
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-build-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-build-
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build Angular project
+              run: npm run build -- --configuration=production
+
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                  name: dist
+                  path: dist
+
+    quality:
+        needs: build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '21'
+
+            - name: Restore build artifacts from cache
+              uses: actions/cache@v2
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-build-${{ hashFiles('package-lock.json') }}
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run linting
+              run: npm run lint
+
