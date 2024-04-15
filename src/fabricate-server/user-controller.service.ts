@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import users from '@mock/users.json';
-import {Response} from '@model/response.interface';
-import {Observable, of} from "rxjs";
-import {User, UserLoginRequestBody} from "@model/user.interface";
+import {Observable, of} from 'rxjs';
+import {User, UserLoginRequestBody} from '@model/user.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -17,13 +16,6 @@ export class UserControllerService {
     }
 
     login(userInfo: UserLoginRequestBody): Observable<User | null> {
-        const response: Response = {
-            code: 200,
-            data: null,
-            errorCode: '',
-            message: '',
-            success: true,
-        };
 
         for(const user of this._users) {
             if ( user.username === userInfo.username && user.password === userInfo.password ) {

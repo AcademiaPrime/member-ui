@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
-import {Store} from "@ngrx/store";
+import {CommonModule} from '@angular/common';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {Store} from '@ngrx/store';
 import {LoginActions} from '@states/authorization/authorization.action';
 // Models
-import {UserLoginForm, UserLoginRequestBody} from "@model/user.interface";
+import {UserLoginForm} from '@model/user.interface';
 
 @Component({
     selector: 'app-login',
@@ -41,7 +41,7 @@ export class LoginComponent {
 
     onSubmit() {
         const { username, password, rememberMe } = this.loginForm.value;
-        const userRequest: UserLoginForm = { username, password, rememberMe }
+        const userRequest: UserLoginForm = { username, password, rememberMe };
         this.store.dispatch(LoginActions.authorize({userLoginForm: userRequest}));
     }
 

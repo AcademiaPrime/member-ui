@@ -10,13 +10,13 @@ export interface CartState {
 export const initialCartState: CartState = {
     courses: [],
     totalPrice: 0,
-}
+};
 
 function calculateTotalPrice(courses: Course[]): number {
     return courses.reduce(
         (accumulator, currentCourse) => accumulator + currentCourse.price * currentCourse.quantity,
         0
-    )
+    );
 }
 
 function addCourse( initialCartState: CartState, course: Course ): CartState {
@@ -85,7 +85,7 @@ export const cartReducer = createReducer(
     on(CartActions.removeCourse, (state, {courseId}) => removeCourse(state, courseId)),
     on(CartActions.increaseCourse, (state, {courseId}) => increaseCourse(state, courseId)),
     on(CartActions.decreaseCourse, (state, {courseId}) => decreaseCourse(state, courseId)),
-    on(CartActions.clearCart, (state) => clearCart()),
+    on(CartActions.clearCart, () => clearCart()),
 );
 
 export const cartFeature = createFeature({

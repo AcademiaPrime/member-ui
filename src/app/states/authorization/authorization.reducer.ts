@@ -1,14 +1,14 @@
 import { createReducer, createFeature, on } from '@ngrx/store';
 import { LoginActions } from './authorization.action';
-import {User} from "@model/user.interface";
+import {User} from '@model/user.interface';
 
 interface State {
     user: User | null;
-};
+}
 
 const initialState: State = {
     user: null,
-}
+};
 
 const userReducer = createReducer(
     initialState,

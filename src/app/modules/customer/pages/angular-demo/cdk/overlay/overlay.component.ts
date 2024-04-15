@@ -1,7 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
-import {CdkConnectedOverlay, CdkOverlayOrigin, Overlay, OverlayConfig} from '@angular/cdk/overlay';
-import {CdkPortal, PortalModule} from "@angular/cdk/portal";
-import {FormLoginComponent} from "./form-login/form-login.component";
+import {Component} from '@angular/core';
+import {CdkConnectedOverlay, CdkOverlayOrigin, Overlay} from '@angular/cdk/overlay';
+import { PortalModule} from '@angular/cdk/portal';
+import {FormLoginComponent} from './form-login/form-login.component';
 
 @Component({
     selector: 'app-overlay',

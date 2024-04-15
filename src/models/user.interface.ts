@@ -1,4 +1,4 @@
-import {CourseInCart} from "@model/course.interface";
+import {CourseInCart} from '@model/course.interface';
 
 export interface User extends UserLoginRequestBody{
     id: number;

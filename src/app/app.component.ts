@@ -6,6 +6,7 @@ import {Word} from '../models/word';
 // Fake Data
 import {ModalService} from './components/modal/modal-service.service';
 import {Store} from '@ngrx/store';
+import {PresentationComponent} from './components/presentation/presentation.component';
 
 
 @Component({
@@ -15,7 +16,8 @@ import {Store} from '@ngrx/store';
         CommonModule,
         RouterOutlet,
         RouterLink,
-        RouterLinkActive
+        RouterLinkActive,
+        PresentationComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit{
         return segments.length === 2 ? `${segments[0]}<strong>${strongWord}</strong>${segments[1]}` : sentence;
     }
 
-    openModal( modalTemplate: TemplateRef<any> ) {
+    openModal( modalTemplate: TemplateRef<unknown> ) {
         this.modalService.open(modalTemplate, { size: 'lg', title: 'Foo' })
             .subscribe(action => {
                 console.log('modal action: ', action);
@@ -52,7 +54,7 @@ export class AppComponent implements OnInit{
 
     doSomething(): string {
         console.log('do something');
-        return 'asdsad'
+        return 'asdsad';
     }
 
 }
