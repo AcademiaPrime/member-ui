@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {LoginActions} from '@states/authorization/authorization.action';
 // Models
 import {UserLoginForm} from '@model/user.interface';
+import {NavigationService} from '../../services/navigation.service';
 
 @Component({
     selector: 'app-login',
@@ -22,22 +23,17 @@ import {UserLoginForm} from '@model/user.interface';
 export class LoginComponent {
     loginForm!: FormGroup;
 
-    constructor(private fb: FormBuilder, private store: Store) {
+    constructor(
+        private fb: FormBuilder,
+        private store: Store,
+        private navigationService: NavigationService
+    ) {
         this.loginForm = this.fb.group({
-            username: [''],
-            password: [''],
+            username: ['', [Validators.required]],
+            password: ['',[Validators.required]],
             rememberMe: [false]
         });
     }
-
-    get username$(): FormControl {
-        return this.loginForm.get('username') as FormControl;
-    }
-
-    get password$(): FormControl {
-        return this.loginForm.get('password') as FormControl;
-    }
-
 
     onSubmit() {
         const { username, password, rememberMe } = this.loginForm.value;

@@ -3,12 +3,14 @@ import {CourseComponent} from './course/course.component';
 import {Course} from '@model/course.interface';
 import FakeCourses from '@mock/courses.json';
 import {CoursesService} from '../../../../services/courses.service';
+import {SidebarComponent} from './sidebar/sidebar.component';
 
 @Component({
     selector: 'app-courses',
     standalone: true,
     imports: [
-        CourseComponent
+        CourseComponent,
+        SidebarComponent
     ],
     providers: [CoursesService],
     templateUrl: './courses.component.html',

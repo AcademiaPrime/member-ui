@@ -1,15 +1,19 @@
-import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
-import {provideRouter} from '@angular/router';
-import {routes} from './app.routes';
-import {provideState, provideStore} from '@ngrx/store';
+
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {counterReducer} from '@states/counter/counter.reducer';
-import {cartFeature,} from '@states/cart/cart.reducer';
+import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import {userFeature} from '@states/authorization/authorization.reducer';
-import {provideEffects} from '@ngrx/effects';
-import {AuthorizationEffect} from '@states/authorization/authorization.effect';
+import {provideRouter} from '@angular/router';
+import {provideState, provideStore} from '@ngrx/store';
 import {provideStoreDevtools} from '@ngrx/store-devtools';
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import {provideEffects} from '@ngrx/effects';
+
+import {routes} from './app.routes';
+import {counterReducer} from '@states/counter/counter.reducer';
+import {userFeature} from '@states/authorization/authorization.reducer';
+import {cartFeature,} from '@states/cart/cart.reducer';
+import {layoutFeature} from '@states/layout/layout.reducer';
+import {AuthorizationEffect} from '@states/authorization/authorization.effect';
 
 
 export const appConfig: ApplicationConfig = {
@@ -18,11 +22,14 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         provideAnimationsAsync(),
         provideStore(),
-        provideState({name: 'counter', reducer: counterReducer}),
+        provideState({ name: 'counter', reducer: counterReducer }),
         // provideState({name: 'cart', reducer: cartReducer}),
         provideState(cartFeature),
         provideState(userFeature),
+        provideState(layoutFeature),
         provideEffects(AuthorizationEffect),
-        provideStoreDevtools({maxAge: 25, logOnly: !isDevMode()})
+        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+        provideStore({router: routerReducer}),
+        provideRouterStore()
     ]
 };

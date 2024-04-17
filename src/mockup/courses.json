@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img8.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/1_C%23_AutoC%23/1_C%23%20C%C4%83n%20b%E1%BA%A3n/Thumbnail.jpg",
+        "title": "Khóa học lập trình C# căn bản",
         "author": "Jose Portilla",
         "label": "bestseller",
         "discount": 39,
@@ -24,8 +24,8 @@
     },
     {
         "id": 2,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img9.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://lh3.googleusercontent.com/d/17zDSNJ-jdMgZpe3LryRCysGk7lIWsNVG",
+        "title": "Những bài viết hữu ích từ Quora",
         "author": "ThomasTran",
         "label": "Featured",
         "discount": 0,
@@ -48,8 +48,8 @@
     },
     {
         "id": 3,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img10.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/4_Java/1_Java%20c%C6%A1%20b%E1%BA%A3n%20%C4%91%E1%BA%BFn%20OOP/Java-core.png",
+        "title": "Lập trình Java cơ bản đến hướng đối tượng",
         "author": "ThomasTran",
         "label": "Featured",
         "discount": 0,
@@ -72,8 +72,8 @@
     },
     {
         "id": 4,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img11.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://lh3.googleusercontent.com/d/1oqJuYNWBOhpfnpCN1fAj0yymMGB_7mbp",
+        "title": "Lập trình Hướng Đối Tượng với Python",
         "author": "ThomasTran",
         "label": "Featured",
         "discount": 0,
@@ -96,8 +96,8 @@
     },
     {
         "id": 5,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img12.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://lh3.googleusercontent.com/d/1Ek5_9876PBY45-1ZZ13LD_5EEbvrWeM5",
+        "title": "Lập trình CSS và SASS nâng cao với dự án website Landing Page",
         "author": "ThomasTran",
         "label": "Featured",
         "discount": 0,
@@ -120,8 +120,296 @@
     },
     {
         "id": 6,
-        "image": "https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/img13.jpg",
-        "title": "The Business Intelligence Analyst Course 2021",
+        "image": "https://lh3.googleusercontent.com/d/1xxouEo75gTaX_nkVHpqdJrvZC50aKMTv",
+        "title": "Khóa Thực chiến SQL cùng Kteam - Dự án quản lý sinh viên ",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 7,
+        "image": "https://lh3.googleusercontent.com/d/1OFoXijtiEgm2r-ZKmGD-_99Q0zIUtXoX",
+        "title": "Note - Tip - Trick Python",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 8,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/3_Python/3_Machine%20Learning%20v%E1%BB%9Bi%20Numpy/Machine%20Learning%20howkteam.png",
+        "title": "Machine Learning cơ bản với NumPy",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 9,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/1_C%23_AutoC%23/8_UI%20Megaman%20tool/0-UI-Megaman-howkteam.png",
+        "title": "Lập trình giao diện Megaman tool với WPF",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 10,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/1_C%23_AutoC%23/9_Megaman%20Cheat/0_-Megaman-Cheat-Engine_Howkteam.png",
+        "title": "Megaman X4 Cheat với cheat engine",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 11,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/3_Python/4_Bai%20Tap%20Python/0_Bai-tap-python.png",
+        "title": "Bài tập Python tự luyện",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 12,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/8_CTDL%26GT/Intro.jpg",
+        "title": "Cấu trúc dữ liệu và giải thuật",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 13,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/Thu%20Thuat/livestream/Ky-thuat-Cracking.jpg",
+        "title": "Kỹ thuật Cracking",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 14,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/1_C%23_AutoC%23/14_Qu%E1%BA%A3n%20l%C3%BD%20qu%C3%A1n%20cafe%20C%23%20winform/QuanLyQuanCaFe.jpg",
+        "title": "Lập trình phần mềm Quản lý quán cafe với C# Winform",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 15,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/7_JavaScript/1_So%20tay%20JS/0-So-tay-Javascript-howkteam.png",
+        "title": "Sổ tay Javascript",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 16,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/3_Python/Python%20Advanced/python%20nang%20cao%20%20howkteam.png",
+        "title": "Python nâng cao",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 17,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/Mobile/voice_call/H%C3%ACnh%20%C4%91%E1%BA%A1i%20di%E1%BB%87n%20kh%C3%B3a%20h%E1%BB%8Dc_640x360.jpg",
+        "title": "Build ứng dụng Voice call/Video call",
+        "author": "ThomasTran",
+        "label": "Featured",
+        "discount": 0,
+        "level": ["All Levels"],
+        "rating": 4.4,
+        "numOfSold": 20230,
+        "price": 129.99,
+        "oldPrice": 129.99,
+        "lastUpdate": "2023-12-20",
+        "totalHours": 23,
+        "description": "The skills you need to become a BI Analyst - Statistics, Database theory, SQL, Tableau – Everything is included",
+        "objectives": [
+            "Become an expert in Statistics, SQL, Tableau, and problem solving",
+            "Boost your resume with in-demand skills",
+            "Gather, organize, analyze and visualize data"
+        ],
+        "liked": false,
+        "quantity": 0
+
+    },
+    {
+        "id": 18,
+        "image": "https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/7_JavaScript/Javascript%20c%C6%A1%20ba%CC%89n/00_%20Javascript%20basic_Kteam.png",
+        "title": "Khóa học JavaScript cơ bản",
         "author": "ThomasTran",
         "label": "Featured",
         "discount": 0,
