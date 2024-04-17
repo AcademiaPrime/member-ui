@@ -8,7 +8,6 @@ import {LeftMenuComponent} from './layout/left-menu/left-menu.component';
 import {Store} from '@ngrx/store';
 import {layoutFeature} from '@states/layout/layout.reducer';
 import {AsyncPipe} from '@angular/common';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 import {openClosedAnimations} from './layout/header/animation';
 
 @Component({
@@ -32,7 +31,7 @@ export class CustomerComponent {
     showExtendLeftMenu = false;
 
     constructor(private store: Store) {
-        this.store.select(layoutFeature.selectShowExtendMenu).subscribe(res => {
+        this.store.select(layoutFeature.selectShowExtendMenu).subscribe((res: boolean) => {
             this.showExtendLeftMenu = res;
         });
     }
