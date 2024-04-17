@@ -1,4 +1,4 @@
-<section class="flex justify-between">
+<section class="py-32 flex justify-between">
     <form
         class="mx-auto p-6 rounded-md border border-zinc-300 shadow-xl form-login"
         [formGroup]="loginForm"
@@ -16,41 +16,52 @@
         </div>
 
         <!--  Start :: Username/Password  -->
-        <div class="mb-5">
-            <label class="mb-3 inline-block font-medium">Email or Username</label>
-            <div class="flex py-3 rounded border border-zinc-300 focus-within:border-red-500">
-                <i class="pl-5 pr-3 text-lg bi bi-person"></i>
-                <input
-                    type="text"
-                    placeholder="Email or Username"
-                    class="flex-1"
-                    formControlName="username">
+        <div class="mb-6 flex gap-6 flex-col">
+            <div>
+                <label class="mb-3 inline-block font-medium">Email or Username</label>
+                <div class="flex py-3 rounded border border-zinc-300 focus-within:border-red-500">
+                    <i class="pl-5 pr-3 text-lg bi bi-person"></i>
+                    <input
+                        type="text"
+                        placeholder="Email or Username"
+                        class="flex-1"
+                        formControlName="username">
+                </div>
             </div>
-        </div>
-        <div class="mb-5">
-            <label class="mb-3 inline-block font-medium">Password</label>
-            <div class="flex py-3 rounded border border-zinc-300 focus-within:border-red-500">
-                <i class="pl-5 pr-3 text-lg bi bi-lock"></i>
-                <input
-                    type="password"
-                    placeholder="Password"
-                    class="flex-1"
-                    formControlName="password">
+            <div>
+                <label class="mb-3 inline-block font-medium">Password</label>
+                <div class="flex py-3 rounded border border-zinc-300 focus-within:border-red-500">
+                    <i class="pl-5 pr-3 text-lg bi bi-lock"></i>
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        class="flex-1"
+                        formControlName="password">
+                </div>
+            </div>
+
+            <div class="flex justify-between">
+                <div class="flex">
+                    <input
+                        type="checkbox"
+                        class="mr-2 cursor-pointer"
+                        formControlName="rememberMe">
+                    <label class="font-medium text-gray-500 cursor-pointer">Remember Me</label>
+                </div>
+                <a href="#" class="font-medium text-red-500">Forgot my password?</a>
             </div>
         </div>
 
-        <div class="mb-6 flex justify-between">
-            <div class="flex">
-                <input
-                    type="checkbox"
-                    class="mr-2 cursor-pointer"
-                    formControlName="rememberMe">
-                <label class="font-medium text-gray-500 cursor-pointer">Remember Me</label>
-            </div>
-            <a href="#" class="font-medium text-red-500">Forgot my password?</a>
-        </div>
 
-        <button class="mb-3 py-3 px-5 inline-block rounded border border-red-500 bg-red-500 hover:bg-white font-medium font-bold text-white hover:text-red-500"><span class="mr-2">Login Account</span><i class="bi bi-arrow-right"></i></button>
+        <button
+            class="mb-3 py-3 px-5 inline-block rounded border border-red-500 bg-red-500 font-medium font-bold text-white"
+            [class.hover:bg-white]="loginForm.valid"
+            [class.hover:text-red-500]="loginForm.valid"
+
+            [disabled]="loginForm.invalid"
+            [class.cursor-not-allowed]="loginForm.invalid"
+            [class.opacity-50]="loginForm.invalid"
+        ><span class="mr-2">Login Account</span><i class="bi bi-arrow-right"></i></button>
         <p class="text-sm"><span class="mr-2">Don't have an account?</span><a href="#" class="font-medium text-red-500" routerLink="/register">Register</a></p>
         <!--  End :: Username/Password  -->
     </form>

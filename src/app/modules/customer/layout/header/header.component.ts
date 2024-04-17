@@ -1,18 +1,18 @@
 import {Component, signal} from '@angular/core';
 import {Store} from '@ngrx/store';
-
+import {AsyncPipe} from '@angular/common';
 // Components
 import {SubMenuComponent} from './sub-menu/sub-menu.component';
 // Models
 import {Menu, MenuState} from '@model/menu.interface';
-import {cartFeature} from '@states/cart/cart.reducer';
-// Animations
-import {openClosedAnimations} from './animation';
-import {AsyncPipe} from '@angular/common';
 import {AppState} from '@states/app.state';
 import {Course} from '@model/course.interface';
 import {User} from '@model/user.interface';
+// Animations
+import {openClosedAnimations} from './animation';
 import {userFeature} from '@states/authorization/authorization.reducer';
+import {LayoutActions} from '@states/layout/layout.action';
+import {cartFeature} from '@states/cart/cart.reducer';
 
 
 @Component({
@@ -166,7 +166,6 @@ export class HeaderComponent {
         },
     ]);
     openingSubMenu = signal<Menu | null>(null);
-    authorized = signal(false);
     user = signal<User | null>( null);
 
     constructor(private store: Store<AppState>) {
@@ -181,5 +180,9 @@ export class HeaderComponent {
 
     onToggleOpenSubMenu(subMenu: Menu | null) {
         this.openingSubMenu.set(subMenu);
+    }
+
+    onShowExtendLeftMenu() {
+        this.store.dispatch(LayoutActions.showExtendMenu());
     }
 }

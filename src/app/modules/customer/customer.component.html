@@ -1,8 +1,11 @@
-<ng-container>
+<section>
     <app-header></app-header>
+    @if ( showExtendLeftMenu ) {
+        <app-left-menu ></app-left-menu>
+    }
     <app-hero-banner></app-hero-banner>
     <section >
         <router-outlet></router-outlet>
     </section>
     <app-footer></app-footer>
-</ng-container>
+</section>

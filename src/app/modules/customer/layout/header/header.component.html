@@ -1,6 +1,6 @@
 <header class="sticky top-0 right-0 left-0 z-50 bg-white">
     <!--  Start :: Header Top  -->
-    <div class="mx-auto h-12 max-w-screen-xl flex items-center justify-between text-sm">
+    <div class="mx-auto px-4 xl:px-0 h-12 max-w-screen-xl flex items-center justify-between text-sm">
         <div class="flex">
             <span class="mr-10 font-medium text-gray-500"><i class="mr-2 bi bi-telephone"></i>0123 456 789</span>
             <span class="font-medium text-gray-500"><i class="mr-2 bi bi-envelope"></i>thomas.tran&#64;pal.net.vn</span>
@@ -28,12 +28,31 @@
     <!--  End :: Header Top  -->
 
     <!--  Start :: Header Bottom  -->
-    <div class="mx-auto py-5 max-w-screen-xl flex items-center justify-between">
+    <div class="mx-auto py-3 xl:py-5 px-4 xl:px-0 max-w-screen-xl flex items-center justify-between">
         <a href="#">
             <img src="https://techydevs.com/demos/themes/html/aduca-demo/aduca/images/logo.png" alt="logo">
         </a>
 
-        <nav>
+        <!--  Mobile  -->
+        <nav class="block xl:hidden">
+            <ul class="flex gap-3">
+                <li>
+                    <button class="size-10 border rounded-full"><i class="bi bi-search"></i></button>
+                </li>
+                <li>
+                    <button class="size-10 border rounded-full"><i class="bi bi-border-all"></i></button>
+                </li>
+                <li>
+                    <button
+                        class="size-10 border rounded-full"
+                        (click)="onShowExtendLeftMenu()"
+                    ><i class="bi bi-justify"></i></button>
+                </li>
+            </ul>
+        </nav>
+
+        <!--  Desktop  -->
+        <nav class="hidden xl:block">
             <ul class="flex items-center">
                 @for (menu of menus(); track menu.title; let first = $first) {
                     <li
