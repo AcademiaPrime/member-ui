@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 // Models
-import {Word} from '../../models/word';
+import {Word} from '@model/word';
 
 @Component({
     selector: 'app-word',
