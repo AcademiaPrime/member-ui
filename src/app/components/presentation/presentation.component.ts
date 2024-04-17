@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-presentation',
-  standalone: true,
-  imports: [],
-  templateUrl: './presentation.component.html',
-  styleUrl: './presentation.component.scss'
+    selector: 'app-presentation',
+    standalone: true,
+    imports: [],
+    templateUrl: './presentation.component.html',
+    styleUrl: './presentation.component.scss'
 })
 export class PresentationComponent {
 
+    page = 1;
+
+    onSwitchPage(num: number) {
+        this.page += num;
+    }
 }
