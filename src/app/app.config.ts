@@ -14,6 +14,7 @@ import {userFeature} from '@states/authorization/authorization.reducer';
 import {cartFeature,} from '@states/cart/cart.reducer';
 import {layoutFeature} from '@states/layout/layout.reducer';
 import {AuthorizationEffect} from '@states/authorization/authorization.effect';
+import {coursesFeature} from '@states/courses/course.reducer';
 
 
 export const appConfig: ApplicationConfig = {
@@ -27,8 +28,9 @@ export const appConfig: ApplicationConfig = {
         provideState(cartFeature),
         provideState(userFeature),
         provideState(layoutFeature),
+        provideState(coursesFeature),
         provideEffects(AuthorizationEffect),
-        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+        provideStoreDevtools({ maxAge: 100, logOnly: !isDevMode() }),
         provideStore({router: routerReducer}),
         provideRouterStore()
     ]

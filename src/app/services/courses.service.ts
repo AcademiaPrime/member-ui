@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {CourseControllerService} from '@server/course-controller.service';
+import {Observable} from 'rxjs';
+import {Course} from '@model/course.interface';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CoursesService {
 
-    private readonly hostname = 'http://localhost:8080/mockup/';
-    constructor(private httpClient: HttpClient) {
+    constructor(private courseControllerService: CourseControllerService) {
     }
 
-    getCoursesApi() {
-        const url = 'courses.json';
-        return this.httpClient.get(`${this.hostname}${url}`);
+    getCoursesApi(): Observable<Course[]> {
+        return this.courseControllerService.getCourses();
     }
 
 }

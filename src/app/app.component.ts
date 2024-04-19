@@ -6,7 +6,6 @@ import {Word} from '../models/word';
 // Fake Data
 import {ModalService} from './components/modal/modal-service.service';
 import {Store} from '@ngrx/store';
-import {PresentationComponent} from './components/presentation/presentation.component';
 
 
 @Component({
@@ -16,8 +15,7 @@ import {PresentationComponent} from './components/presentation/presentation.comp
         CommonModule,
         RouterOutlet,
         RouterLink,
-        RouterLinkActive,
-        PresentationComponent
+        RouterLinkActive
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
