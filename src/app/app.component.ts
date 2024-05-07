@@ -6,6 +6,11 @@ import {Word} from '../models/word';
 // Fake Data
 import {ModalService} from './components/modal/modal-service.service';
 import {Store} from '@ngrx/store';
+import {
+    NgMultiselectDropdownComponent
+} from './components/library/ng-multiselect-dropdown/ng-multiselect-dropdown.component';
+import {IDropdownSettings, ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
+import {FormsModule} from '@angular/forms';
 
 
 @Component({
@@ -15,7 +20,11 @@ import {Store} from '@ngrx/store';
         CommonModule,
         RouterOutlet,
         RouterLink,
-        RouterLinkActive
+        RouterLinkActive,
+        FormsModule,
+        // Components
+        NgMultiselectDropdownComponent
+
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
@@ -34,25 +43,95 @@ export class AppComponent implements OnInit{
         private store: Store
     ) {}
 
-    ngOnInit() {
+    cities = [
+        {
+            item_id: 1,
+            item_text: 'India',
+            image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
+        },
+        {
+            item_id: 2,
+            item_text: 'Spain',
+            image: 'http://www.sciencekids.co.nz/images/pictures/flags96/Spain.jpg',
+        },
+        {
+            item_id: 3,
+            item_text: 'United Kingdom',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg',
+        },
+        {
+            item_id: 4,
+            item_text: 'Canada',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg',
+        },
+        {
+            item_id: 5,
+            item_text: 'Israel',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Israel.jpg',
+        },
+        {
+            item_id: 6,
+            item_text: 'Brazil',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg',
+        },
+        {
+            item_id: 7,
+            item_text: 'Barbados',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Barbados.jpg',
+        },
+        {
+            item_id: 8,
+            item_text: 'Mexico',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Mexico.jpg',
+        },
+    ];
+
+    selectedItems = [
+        {
+            item_id: 1,
+            item_text: 'India',
+            image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
+        },
+        {
+            item_id: 5,
+            item_text: 'Israel',
+            image:
+                'http://www.sciencekids.co.nz/images/pictures/flags96/Israel.jpg',
+        },
+    ];
+
+    dropdownSettings: IDropdownSettings = {
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 3,
+        allowSearchFilter: true
+    };
+
+    ngOnInit() {}
+
+    onItemSelect(item: ListItem) {
+        console.log('select one: ', item);
     }
-
-    private remarkStrongWord(sentence: string, strongWord: string): string {
-        const segments = sentence.split(strongWord);
-        return segments.length === 2 ? `${segments[0]}<strong>${strongWord}</strong>${segments[1]}` : sentence;
+    onItemDeselect(item: any) {
+        console.log('deselect one: ', item);
     }
+    onSelectAll(items: any) {
 
-    openModal( modalTemplate: TemplateRef<unknown> ) {
-        this.modalService.open(modalTemplate, { size: 'lg', title: 'Foo' })
-            .subscribe(action => {
-                console.log('modal action: ', action);
-            });
+        console.log('select all:', items);
     }
+}
 
-
-    doSomething(): string {
-        console.log('do something');
-        return 'asdsad';
-    }
-
+interface Option {
+    item_id: number;
+    item_text: string;
+    abc: number;
 }

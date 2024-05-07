@@ -4,7 +4,8 @@ import {Course} from '@model/course.interface';
 
 const actionToken = '[Course/API]';
 
-export const loadCourses = createAction(`${actionToken} Load Courses`, props<{ courses: Course[] }>());
+export const loadCourses = createAction(`${actionToken} Load Courses`);
+export const loadCoursesSuccessfully = createAction(`${actionToken} Load Courses Successfully`, props<{ courses: Course[] }>());
 export const setCourses = createAction(`${actionToken} Set Courses`, props<{ courses: Course[] }>());
 export const addCourse = createAction(`${actionToken} Add Course`, props<{ course: Course }>());
 export const setCourse = createAction(`${actionToken} Set Course`, props<{ course: Course }>());

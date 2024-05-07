@@ -2,6 +2,7 @@ import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 import {Course} from '@model/course.interface';
 import {createFeature, createReducer, on} from '@ngrx/store';
 import * as CourseActions from './course.action';
+import {loadCoursesSuccessfully} from './course.action';
 
 export interface State extends  EntityState<Course> {
     // additional entities state properties
@@ -68,7 +69,7 @@ export const courseReducer = createReducer(
     on(CourseActions.deleteCoursesByPredicate, (state, { predicate }) => {
         return adapter.removeMany(predicate, state);
     }),
-    on(CourseActions.loadCourses, (state, { courses }) => {
+    on(CourseActions.loadCoursesSuccessfully, (state, { courses }) => {
         return adapter.setAll(courses, state);
     }),
     on(CourseActions.setCourses, (state, { courses }) => {
