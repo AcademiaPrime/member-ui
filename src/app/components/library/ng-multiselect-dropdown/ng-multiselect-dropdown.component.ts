@@ -65,6 +65,9 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         showSelectedItemsAtTop: false,
         defaultOpen: false,
         allowRemoteDataSearch: false,
+        customClass: '',
+        customResultWrapperClass: '',
+        showCaret: true,
     };
     _settings: IDropdownSettings = Object.assign({}, this.defaultSettings);
 
@@ -91,6 +94,18 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     @Input()
     public set enableCheckAll(val: boolean) {
         this._settings.enableCheckAll = Boolean(val);
+    }
+    @Input()
+    public set showCaret(val: boolean) {
+        this._settings.showCaret = Boolean(val);
+    }
+    @Input()
+    public set customClass(val: string) {
+        this._settings.customClass = val ?? '';
+    }
+    @Input()
+    public set customResultWrapperClass(val: string) {
+        this._settings.customResultWrapperClass = val ?? '';
     }
     @Input()
     public set placeholder(value: string) {
@@ -123,12 +138,13 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         }
     }
 
+
     @ContentChild('optionsTemplate') optionsTemplateRef!: TemplateRef<any>;
     @ContentChild('optionSelectedTemplate') optionSelectedTemplateRef: TemplateRef<DocumentFragment> | null = null;
 
     @Output() filterChange: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() dropDownClose: EventEmitter<ListItem> = new EventEmitter<ListItem>();
-    @Output() select: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() select: EventEmitter<any> = new EventEmitter<any>();
     @Output() deSelect: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() selectAll: EventEmitter<ListItem[]> = new EventEmitter<ListItem[]>();
     @Output() deSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<ListItem>>();
@@ -149,7 +165,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         if (this.disabled || item.isDisabled) return;
 
         if (this._settings.singleSelection) {
-            if (item[this._settings.idField] !== this.selectedItems[this._settings.idField]) {
+            if ( JSON.stringify(item) !== JSON.stringify(this.selectedItems) ) {
                 this.addSelected(item);
             }
         } else {
@@ -212,7 +228,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     }
 
     isSelected(clickedItem: any) {
-        if ( Array.isArray(this.selectedItems) ) {
+        if ( !this._settings.singleSelection && Array.isArray(this.selectedItems) ) {
             let found = false;
             this.selectedItems.forEach((item) => {
                 if (clickedItem[this._settings.idField] === item[this._settings.idField]) {
@@ -221,7 +237,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
             });
             return found;
         } else {
-            return clickedItem[this._settings.idField] === this.selectedItems[this._settings.idField];
+            return (clickedItem[this._settings.idField] ?? clickedItem) === (this.selectedItems[this._settings.idField] ?? this.selectedItems);
         }
     }
 
@@ -244,7 +260,11 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     }
 
     itemShowRemaining(): number {
-        return this.selectedItems.length - this._settings.itemsShowLimit;
+        if (Array.isArray(this.selectedItems)) {
+            return this.selectedItems.length - this._settings.itemsShowLimit;
+        }
+
+        return 0;
     }
 
     addSelected(item: any) {

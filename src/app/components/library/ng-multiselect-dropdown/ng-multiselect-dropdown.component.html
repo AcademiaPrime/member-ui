@@ -1,20 +1,21 @@
 <div
     appClickOutside
     class="multiselect-dropdown"
+    [ngClass]="_settings.customClass"
     [tabindex]="0"
     (blur)="onTouched()"
     (clickOutside)="closeDropdown()"
 >
     <div [class.disabled]="disabled">
-        <span tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
+        <span tabindex="-1" class="dropdown-btn" [ngClass]="_settings.customResultWrapperClass" (click)="toggleDropdown($event)">
             <div class="selected-items">
                 @if ( selectedItems.length === 0 ) {
                     <span>{{ _placeholder }}</span>
                 } @else {
                     @if (_settings.singleSelection) {
-                        <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="selectedItems[_settings.textField]">
+                        <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="selectedItems[_settings.textField] ?? selectedItems">
                             <span class="text">
-                                <ng-template #defaultOptionSelectedTemplate>{{ selectedItems[_settings.textField] }}</ng-template>
+                                <ng-template #defaultOptionSelectedTemplate>{{ selectedItems[_settings.textField] ?? selectedItems }}</ng-template>
                                 <ng-container
                                     [ngTemplateOutlet]="optionSelectedTemplateRef || defaultOptionSelectedTemplate"
                                     [ngTemplateOutletContext]="{ $implicit:selectedItems }">
@@ -24,9 +25,9 @@
                     } @else {
                         @for( item of selectedItems; track item[_settings.idField]; let k = $index) {
                             @if ( k < _settings.itemsShowLimit ) {
-                                <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField]">
+                                <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField] ?? item">
                                     <span class="text">
-                                        <ng-template #defaultOptionSelectedTemplate>{{ item[_settings.textField] }}</ng-template>
+                                        <ng-template #defaultOptionSelectedTemplate>{{ item[_settings.textField] ?? item}}</ng-template>
                                         <ng-container
                                             [ngTemplateOutlet]="optionSelectedTemplateRef || defaultOptionSelectedTemplate"
                                             [ngTemplateOutletContext]="{ $implicit:item }">
@@ -43,8 +44,13 @@
             </div>
 
             <span [ngClass]="{ 'dropdown-multiselect--active': _settings.defaultOpen }" style="padding-right:4px">
-                <span style="padding-right: 15px;" *ngIf="itemShowRemaining() > 0">+{{ itemShowRemaining() }}</span>
-                <span class="dropdown-multiselect__caret"></span>
+                @if ( !_settings.singleSelection && itemShowRemaining() > 0 ) {
+                    <span style="padding-right: 15px;">+{{ itemShowRemaining() }}</span>
+                }
+
+                @if ( _settings.showCaret ) {
+                    <span class="dropdown-multiselect__caret"></span>
+                }
             </span>
         </span>
     </div>
@@ -82,14 +88,14 @@
                             @if ( !_settings.singleSelection ) {
                                 <input
                                     type="checkbox"
-                                    [attr.aria-label]="item[_settings.textField]"
+                                    [attr.aria-label]="item[_settings.textField] ?? item"
                                     [checked]="isSelected(item)"
                                     [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled"/>
                             }
 
                             <div
                                 [ngClass]="{ 'selected': isSelected(item)}"
-                                [ngStyle]="{ 'color': disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled ? '#cccccc': ''}">{{ item[_settings.textField] }}
+                                [ngStyle]="{ 'color': disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled ? '#cccccc': ''}">{{ item[_settings.textField] ?? item }}
                             </div>
                         </div>
                     } @else {

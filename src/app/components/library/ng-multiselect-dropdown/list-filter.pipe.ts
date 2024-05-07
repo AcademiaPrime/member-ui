@@ -9,7 +9,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class ListFilterPipe implements PipeTransform {
 
     transform(items: any[], keySearch: string, propertyFilter: string): any[] {
-        if ( !items || !propertyFilter ) {
+        if ( !items || !keySearch ) {
             return items;
         }
 
@@ -17,7 +17,11 @@ export class ListFilterPipe implements PipeTransform {
     }
 
     private applyFilter(item: any, keySearch: string, propertyFilter: string): boolean {
-        return !(keySearch && item[propertyFilter] && item[propertyFilter].toString().toLowerCase().indexOf(keySearch.toString().toLowerCase()) === -1);
+        if ( typeof item === 'object') {
+            return !(keySearch && item[propertyFilter] && item[propertyFilter].toString().toLowerCase().indexOf(keySearch.toString().toLowerCase()) === -1);
+        }
+
+        return !(keySearch && item.toString().toLowerCase().indexOf(keySearch.toString().toLowerCase()) === -1);
     }
 
 }

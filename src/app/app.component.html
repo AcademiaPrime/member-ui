@@ -4,26 +4,23 @@
     <form class="w-96 mx-auto">
         <app-ng-multiselect-dropdown
             name="multiselect"
-            idField="item_id"
-            textField="item_text"
-            selectAllText="Select All"
-            unSelectAllText="UnSelect All"
+            placeholder="Search menu"
             [enableCheckAll]="true"
-            [allowSearchFilter]="false"
-            [singleSelection]="false"
-            [placeholder]="'custom placeholder'"
-            [data]="cities"
-            [(ngModel)]="selectedItems"
+            [allowSearchFilter]="true"
+            [singleSelection]="true"
+            [showCaret]="false"
+            [data]="menus"
+            [(ngModel)]="selectedMenu"
             (select)="onItemSelect($event)"
             (deSelect)="onItemDeselect($event)"
             (selectAll)="onSelectAll($event)"
         >
-            <ng-template #optionsTemplate let-item let-selected=selected>
-                <div class="px-3 py-2 flex items-center cursor-pointer" [class.bg-red-100]="selected">
-                    <img [src]="item.image" class="w-5 mr-2" />
-                    <span>{{item.item_text}}</span>
-                </div>
-            </ng-template>
+<!--            <ng-template #optionsTemplate let-item let-selected=selected>-->
+<!--                <div class="px-3 py-2 flex items-center cursor-pointer" [class.bg-red-100]="selected">-->
+<!--                    <img [src]="item.image" class="w-5 mr-2" />-->
+<!--                    <span>{{item.item_text}}</span>-->
+<!--                </div>-->
+<!--            </ng-template>-->
         </app-ng-multiselect-dropdown>
     </form>
 
