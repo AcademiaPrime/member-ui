@@ -1,28 +1,42 @@
 <div
     appClickOutside
-    (blur)="onTouched()"
     class="multiselect-dropdown"
+    [tabindex]="0"
+    (blur)="onTouched()"
     (clickOutside)="closeDropdown()"
 >
     <div [class.disabled]="disabled">
         <span tabindex="-1" class="dropdown-btn" (click)="toggleDropdown($event)">
             <div class="selected-items">
-                @if ( selectedItems.length == 0 ) {
+                @if ( selectedItems.length === 0 ) {
                     <span>{{ _placeholder }}</span>
                 } @else {
-                    @for( item of selectedItems; track item.id; let k = $index) {
-                        @if ( k < _settings.itemsShowLimit ) {
-                            <div [ngClass]="{'selected-item': !_settings.singleSelection }">
-                                <ng-template #defaultOptionSelectedTemplate>{{ item.text }}</ng-template>
+                    @if (_settings.singleSelection) {
+                        <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="selectedItems[_settings.textField]">
+                            <span class="text">
+                                <ng-template #defaultOptionSelectedTemplate>{{ selectedItems[_settings.textField] }}</ng-template>
                                 <ng-container
                                     [ngTemplateOutlet]="optionSelectedTemplateRef || defaultOptionSelectedTemplate"
-                                    [ngTemplateOutletContext]="{ $implicit:item, option: item.text, id: item.id }">
+                                    [ngTemplateOutletContext]="{ $implicit:selectedItems }">
                                 </ng-container>
-
+                            </span>
+                        </div>
+                    } @else {
+                        @for( item of selectedItems; track item[_settings.idField]; let k = $index) {
+                            @if ( k < _settings.itemsShowLimit ) {
+                                <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField]">
+                                    <span class="text">
+                                        <ng-template #defaultOptionSelectedTemplate>{{ item[_settings.textField] }}</ng-template>
+                                        <ng-container
+                                            [ngTemplateOutlet]="optionSelectedTemplateRef || defaultOptionSelectedTemplate"
+                                            [ngTemplateOutletContext]="{ $implicit:item }">
+                                        </ng-container>
+                                    </span>
                                     @if ( !_settings.singleSelection ) {
                                         <a (click)="onItemClick($event,item)">x</a>
                                     }
-                            </div>
+                                </div>
+                            }
                         }
                     }
                 }
@@ -44,8 +58,7 @@
                     <div>{{ !isAllItemsSelected() ? _settings.selectAllText : _settings.unSelectAllText }}</div>
                 </li>
             }
-
-            @if ( (_data.length>0 || _settings.allowRemoteDataSearch) && _settings.allowSearchFilter ) {
+            @if ( _data.length > 0 && _settings.allowSearchFilter ) {
                 <li class="filter-textbox" >
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                          x="0px" y="0px" width="16px" height="16px"
@@ -55,41 +68,45 @@
                         aria-label="multiselect-search"
                         [readOnly]="disabled"
                         [placeholder]="_settings.searchPlaceholderText"
-                        [(ngModel)]="filter.text"
+                        [(ngModel)]="keySearch"
                         (ngModelChange)="onFilterTextChange($event)">
                 </li>
             }
         </ul>
 
         <ul class="item2" [style.maxHeight]="_settings.maxHeight+'px'">
-            @for (item of _data | multiSelectFilter:filter; track item.id; let i = $index  ) {
+            @for (item of _data | multiSelectFilter:keySearch:_settings.textField; track item.id; let i = $index  ) {
                 <li class="multiselect-item-checkbox" (click)="onItemClick($event,item)">
-                    @if ( !_settings.singleSelection ) {
-                        <input
-                            type="checkbox"
-                            [attr.aria-label]="item.text"
-                            [checked]="isSelected(item)"
-                            [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled"/>
-                    }
+                    @if ( !optionsTemplateRef ) {
+                        <div class="default-wrapper-option">
+                            @if ( !_settings.singleSelection ) {
+                                <input
+                                    type="checkbox"
+                                    [attr.aria-label]="item[_settings.textField]"
+                                    [checked]="isSelected(item)"
+                                    [disabled]="disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled"/>
+                            }
 
-                    <ng-template #defaultOptionTemplate>
-                        <div [ngClass]="{ 'selected': isSelected(item)}"
-                             [ngStyle]="{ 'color': disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled ? '#cccccc': ''}">{{ item.text }}
+                            <div
+                                [ngClass]="{ 'selected': isSelected(item)}"
+                                [ngStyle]="{ 'color': disabled || (isLimitSelectionReached() && !isSelected(item)) || item.isDisabled ? '#cccccc': ''}">{{ item[_settings.textField] }}
+                            </div>
                         </div>
-                    </ng-template>
-                    <ng-container [ngTemplateOutlet]="optionsTemplateRef || defaultOptionTemplate"
-                                  [ngTemplateOutletContext]="{ $implicit:item, option: item.text, id: item.id, isSelected: isSelected(item) }">
-                    </ng-container>
+                    } @else {
+                        <ng-container [ngTemplateOutlet]="optionsTemplateRef"
+                                      [ngTemplateOutletContext]="{ $implicit:item, selected: isSelected(item) }">
+                        </ng-container>
+                    }
                 </li>
             }
 
-            @if ( _data.length !== 0 && (_data | multiSelectFilter:filter).length === 0 && !_settings.allowRemoteDataSearch ) {
+            @if ( _data.length !== 0 && (_data | multiSelectFilter:keySearch:_settings.textField).length === 0 && !_settings.allowRemoteDataSearch ) {
                 <li class='no-filtered-data'>
                     <h5>{{ _settings.noFilteredDataAvailablePlaceholderText }}</h5>
                 </li>
             }
 
-            @if ( _data.length == 0 && !_settings.allowRemoteDataSearch ) {
+            @if ( _data.length === 0 && !_settings.allowRemoteDataSearch ) {
                 <li class='no-data'>
                     <h5>{{ _settings.noDataAvailablePlaceholderText }}</h5>
                 </li>

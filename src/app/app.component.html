@@ -2,27 +2,29 @@
 
 <div class="w-screen h-screen flex flex-col justify-center">
     <form class="w-96 mx-auto">
-        <ng-multiselect-dropdown
+        <app-ng-multiselect-dropdown
             name="multiselect"
+            idField="item_id"
+            textField="item_text"
+            selectAllText="Select All"
+            unSelectAllText="UnSelect All"
+            [enableCheckAll]="true"
+            [allowSearchFilter]="false"
+            [singleSelection]="false"
             [placeholder]="'custom placeholder'"
-            [settings]="dropdownSettings"
             [data]="cities"
             [(ngModel)]="selectedItems"
             (select)="onItemSelect($event)"
             (deSelect)="onItemDeselect($event)"
             (selectAll)="onSelectAll($event)"
         >
-            <ng-template #optionsTemplate let-item let-option="option" let-id="id" let-isSelected="isSelected">
-                <div style="padding:1px 10px;margin-right:10px;right:2px;top:-2px">
-                    {{item|json}}
-                    {{id}}
-                    <img [src]="item.image" style="width: 18px; margin: 0 20px;" />
-                    <label style="color: #333;min-width: 130px;" [ngStyle]="{ 'color': item.isDisabled? 'lightgrey':''}">
-                        {{item.item_text}}
-                    </label>
+            <ng-template #optionsTemplate let-item let-selected=selected>
+                <div class="px-3 py-2 flex items-center cursor-pointer" [class.bg-red-100]="selected">
+                    <img [src]="item.image" class="w-5 mr-2" />
+                    <span>{{item.item_text}}</span>
                 </div>
             </ng-template>
-        </ng-multiselect-dropdown>
+        </app-ng-multiselect-dropdown>
     </form>
 
 </div>

@@ -91,7 +91,6 @@ export class AppComponent implements OnInit{
                 'http://www.sciencekids.co.nz/images/pictures/flags96/Mexico.jpg',
         },
     ];
-
     selectedItems = [
         {
             item_id: 1,
@@ -105,15 +104,10 @@ export class AppComponent implements OnInit{
                 'http://www.sciencekids.co.nz/images/pictures/flags96/Israel.jpg',
         },
     ];
-
-    dropdownSettings: IDropdownSettings = {
-        singleSelection: false,
-        idField: 'item_id',
-        textField: 'item_text',
-        selectAllText: 'Select All',
-        unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 3,
-        allowSearchFilter: true
+    singleSelectedItems = {
+        item_id: 1,
+        item_text: 'India',
+        image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
     };
 
     ngOnInit() {}
@@ -128,10 +122,4 @@ export class AppComponent implements OnInit{
 
         console.log('select all:', items);
     }
-}
-
-interface Option {
-    item_id: number;
-    item_text: string;
-    abc: number;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
     ChangeDetectionStrategy, ChangeDetectorRef,
     Component,
@@ -24,7 +25,7 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: Provider = {
 };
 
 @Component({
-    selector: 'ng-multiselect-dropdown',
+    selector: 'app-ng-multiselect-dropdown',
     standalone: true,
     imports: [
         ClickOutsideDirective,
@@ -38,27 +39,25 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: Provider = {
     providers: [ListFilterPipe, DROPDOWN_CONTROL_VALUE_ACCESSOR]
 })
 export class NgMultiselectDropdownComponent implements ControlValueAccessor {
-    public _settings!: IDropdownSettings;
-    public _data: Array<ListItem> = [];
-    public selectedItems: Array<ListItem> = [];
-    public isDropdownOpen = true;
+
+    _data: any[] = [];
+    selectedItems: any[] | any= [];
     _placeholder = 'Select';
-    private _sourceDataType: string | null = null;
-    private _sourceDataFields: string[] = [];
     filter: ListItem = new ListItem('');
+    keySearch = '';
     defaultSettings: IDropdownSettings = {
         singleSelection: false,
         idField: 'id',
         textField: 'text',
         disabledField: 'isDisabled',
-        enableCheckAll: true,
+        enableCheckAll: false,
         selectAllText: 'Select All',
         unSelectAllText: 'UnSelect All',
         allowSearchFilter: false,
         limitSelection: -1,
         clearSearchFilter: true,
         maxHeight: 197,
-        itemsShowLimit: 999999999999,
+        itemsShowLimit: 3,
         searchPlaceholderText: 'Search',
         noDataAvailablePlaceholderText: 'No data available',
         noFilteredDataAvailablePlaceholderText: 'No filtered data available',
@@ -67,7 +66,32 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         defaultOpen: false,
         allowRemoteDataSearch: false,
     };
+    _settings: IDropdownSettings = Object.assign({}, this.defaultSettings);
 
+    @Input()
+    public set singleSelection(val: boolean) {
+        this._settings.singleSelection = Boolean(val);
+    }
+    @Input()
+    public set idField(val: string) {
+        this._settings.idField = val ? val.toString() : 'id';
+    }
+    @Input()
+    public set textField(val: string) {
+        this._settings.textField = val ? val.toString() : 'text';
+    }
+    @Input()
+    public set itemsShowLimit(val: number) {
+        this._settings.itemsShowLimit = val ?? 3;
+    }
+    @Input()
+    public set allowSearchFilter(val: boolean) {
+        this._settings.allowSearchFilter = Boolean(val);
+    }
+    @Input()
+    public set enableCheckAll(val: boolean) {
+        this._settings.enableCheckAll = Boolean(val);
+    }
     @Input()
     public set placeholder(value: string) {
         if (value) {
@@ -95,32 +119,25 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         if (!val) {
             this._data = [];
         } else {
-            const firstItem = val[0];
-            this._sourceDataType = typeof firstItem;
-            this._sourceDataFields = this.getFields(firstItem);
-            this._data = val.map((item: unknown) =>
-                typeof item === 'string' || typeof item === 'number'
-                    ? new ListItem(item)
-                    : new ListItem(this.getObject(item))
-            );
+            this._data = JSON.parse(JSON.stringify(val));
         }
     }
 
-    @ContentChild('optionsTemplate') optionsTemplateRef: TemplateRef<DocumentFragment> | null = null;
+    @ContentChild('optionsTemplate') optionsTemplateRef!: TemplateRef<any>;
     @ContentChild('optionSelectedTemplate') optionSelectedTemplateRef: TemplateRef<DocumentFragment> | null = null;
 
-    @Output('filterChange') onFilterChange: EventEmitter<ListItem> = new EventEmitter<ListItem>();
-    @Output('dropDownClose') onDropDownClose: EventEmitter<ListItem> = new EventEmitter<ListItem>();
-    @Output('select') onSelect: EventEmitter<ListItem> = new EventEmitter<ListItem>();
-    @Output('deSelect') onDeSelect: EventEmitter<ListItem> = new EventEmitter<ListItem>();
-    @Output('selectAll') onSelectAll: EventEmitter<ListItem[]> = new EventEmitter<ListItem[]>();
-    @Output('deSelectAll')onDeSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<ListItem>>();
+    @Output() filterChange: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() dropDownClose: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() select: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() deSelect: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() selectAll: EventEmitter<ListItem[]> = new EventEmitter<ListItem[]>();
+    @Output() deSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<ListItem>>();
 
     private onTouchedCallback: () => void = noop;
     private onChangeCallback: (_: any) => void = noop;
 
     onFilterTextChange(item: any) {
-        this.onFilterChange.emit(item);
+        this.filterChange.emit(item);
     }
 
     constructor(
@@ -128,11 +145,11 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         private cdr: ChangeDetectorRef
     ) { }
 
-    onItemClick($event: any, item: ListItem) {
+    onItemClick($event: any, item: any) {
         if (this.disabled || item.isDisabled) return;
 
         if (this._settings.singleSelection) {
-            if (item.id !== this.selectedItems[0].id) {
+            if (item[this._settings.idField] !== this.selectedItems[this._settings.idField]) {
                 this.addSelected(item);
             }
         } else {
@@ -158,34 +175,12 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     }
 
     writeValue(value: unknown) {
-        if (value !== undefined && value !== null && Array.isArray(value) && value.length > 0) {
+        if (value !== undefined && value !== null) {
             if (this._settings.singleSelection) {
-                try {
-                    if (value.length >= 1) {
-                        const firstItem = value[0];
-                        this.selectedItems = [
-                            typeof firstItem === 'string' || typeof firstItem === 'number'
-                                ? new ListItem(firstItem)
-                                : new ListItem({
-                                    id: firstItem[this._settings.idField],
-                                    text: firstItem[this._settings.textField],
-                                    isDisabled: firstItem[this._settings.disabledField ?? ''],
-                                }),
-                        ];
-                    }
-                } catch (e) {
-                    console.error((e as Error).message);
-                }
+                this.selectedItems = JSON.parse(JSON.stringify(value));
+                console.log('selected items: ', this.selectedItems);
             } else {
-                const _data = value.map((item: any) =>
-                    typeof item === 'string' || typeof item === 'number'
-                        ? new ListItem(item)
-                        : new ListItem({
-                            id: item[this._settings.idField],
-                            text: item[this._settings.textField],
-                            isDisabled: item[this._settings.disabledField ?? ''],
-                        })
-                );
+                const _data = JSON.parse(JSON.stringify(value));
                 if (this._settings.limitSelection && this._settings.limitSelection > 0) {
                     this.selectedItems = _data.splice(0, this._settings.limitSelection);
                 } else {
@@ -213,18 +208,21 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     // Set touched on blur
     @HostListener('blur')
     public onTouched() {
-        // this.closeDropdown();
         this.onTouchedCallback();
     }
 
-    isSelected(clickedItem: ListItem) {
-        let found = false;
-        this.selectedItems.forEach((item) => {
-            if (clickedItem.id === item.id) {
-                found = true;
-            }
-        });
-        return found;
+    isSelected(clickedItem: any) {
+        if ( Array.isArray(this.selectedItems) ) {
+            let found = false;
+            this.selectedItems.forEach((item) => {
+                if (clickedItem[this._settings.idField] === item[this._settings.idField]) {
+                    found = true;
+                }
+            });
+            return found;
+        } else {
+            return clickedItem[this._settings.idField] === this.selectedItems[this._settings.idField];
+        }
     }
 
     isLimitSelectionReached(): boolean {
@@ -232,7 +230,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     }
 
     isAllItemsSelected(): boolean {
-        const filteredItems = this.listFilterPipe.transform(this._data, this.filter);
+        const filteredItems = this.listFilterPipe.transform(this._data, this.keySearch, this._settings.textField);
         const itemDisabledCount = filteredItems.filter((item) => item.isDisabled).length;
         if (
             (!this.data || this.data.length === 0) &&
@@ -249,54 +247,30 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         return this.selectedItems.length - this._settings.itemsShowLimit;
     }
 
-    addSelected(item: ListItem) {
+    addSelected(item: any) {
         if (this._settings.singleSelection) {
-            this.selectedItems = [];
-            this.selectedItems.push(item);
+            this.selectedItems = item;
         } else {
             this.selectedItems.push(item);
         }
-        this.onChangeCallback(this.emittedValue(this.selectedItems));
-        this.onSelect.emit(this.emittedValue(item));
+        this.onChangeCallback(this.selectedItems);
+        this.select.emit(item);
     }
 
-    removeSelected(itemSel: ListItem) {
-        this.selectedItems.forEach((item) => {
-            if (itemSel.id === item.id) {
-                this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
-            }
-        });
-        this.onChangeCallback(this.emittedValue(this.selectedItems));
-        this.onDeSelect.emit(this.emittedValue(itemSel));
-    }
-
-    emittedValue(val: any): any {
-        const selected: any = [];
-        if (Array.isArray(val)) {
-            val.map((item) => {
-                selected.push(this.objectify(item));
+    removeSelected(itemSel: any) {
+        if (Array.isArray(this.selectedItems)) {
+            this.selectedItems.forEach((item) => {
+                if (itemSel[this._settings.idField] === item[this._settings.idField]) {
+                    this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
+                }
             });
-        } else {
-            if (val) {
-                return this.objectify(val);
-            }
         }
-        return selected;
+
+        this.onChangeCallback(this.selectedItems);
+        this.deSelect.emit(itemSel);
     }
 
-    objectify(val: ListItem) {
-        if (this._sourceDataType === 'object') {
-            const obj: any = {};
-            obj[this._settings.idField] = val.id;
-            obj[this._settings.textField] = val.text;
-            if (this._sourceDataFields.includes(this._settings.disabledField ?? '')) {
-                obj[this._settings.disabledField ?? ''] = val.isDisabled;
-            }
-            return obj;
-        } else {
-            return val;
-        }
-    }
+
 
     toggleDropdown(evt: MouseEvent) {
         evt.preventDefault();
@@ -305,7 +279,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         }
         this._settings.defaultOpen = !this._settings.defaultOpen;
         if (!this._settings.defaultOpen) {
-            this.onDropDownClose.emit();
+            this.dropDownClose.emit();
         }
     }
 
@@ -315,7 +289,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         if (this._settings.clearSearchFilter) {
             this.filter.text = '';
         }
-        this.onDropDownClose.emit();
+        this.dropDownClose.emit();
     }
 
     toggleSelectAll() {
@@ -324,34 +298,14 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         if (!this.isAllItemsSelected()) {
             // filter out disabled item first before slicing
             this.selectedItems = this.listFilterPipe
-                .transform(this._data, this.filter)
+                .transform(this._data, this._settings.textField, this.keySearch)
                 .filter((item: ListItem) => !item.isDisabled)
                 .slice();
-            this.onSelectAll.emit(this.emittedValue(this.selectedItems));
+            this.selectAll.emit(this.selectedItems);
         } else {
             this.selectedItems = [];
-            this.onDeSelectAll.emit(this.emittedValue(this.selectedItems));
+            this.deSelectAll.emit(this.selectedItems);
         }
-        this.onChangeCallback(this.emittedValue(this.selectedItems));
-    }
-
-    getFields(inputData: unknown): string[] {
-        const fields: string[] = [];
-        if (typeof inputData !== 'object') {
-            return fields;
-        }
-
-        for (const prop in inputData) {
-            fields.push(prop);
-        }
-        return fields;
-    }
-
-    private getObject(source: unknown): ListItem {
-        return {
-            id: (source as {[key: string]: string | number})[this._settings.idField],
-            text: (source as {[key: string]: string | number})[this._settings.textField],
-            isDisabled: (source as {[key: string]: boolean})[this._settings.disabledField ?? ''],
-        };
+        this.onChangeCallback(this.selectedItems);
     }
 }
