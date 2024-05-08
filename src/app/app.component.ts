@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
     cities = [
         {
             item_id: 1,
-            item_text: 'India',
+            item_text: 'Vietnam Vietnam',
             image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
         },
         {
@@ -91,19 +91,7 @@ export class AppComponent implements OnInit{
                 'http://www.sciencekids.co.nz/images/pictures/flags96/Mexico.jpg',
         },
     ];
-    selectedItems = [
-        {
-            item_id: 1,
-            item_text: 'India',
-            image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
-        },
-        {
-            item_id: 5,
-            item_text: 'Israel',
-            image:
-                'http://www.sciencekids.co.nz/images/pictures/flags96/Israel.jpg',
-        },
-    ];
+    selectedItems = [];
     singleSelectedItems = {
         item_id: 1,
         item_text: 'India',
@@ -232,5 +220,9 @@ export class AppComponent implements OnInit{
     onSelectAll(items: any) {
 
         console.log('select all:', items);
+    }
+    onDeselectAll() {
+
+        console.log('deselect all:');
     }
 }

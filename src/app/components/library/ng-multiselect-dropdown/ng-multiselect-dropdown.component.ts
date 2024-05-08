@@ -35,7 +35,7 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: Provider = {
     ],
     templateUrl: './ng-multiselect-dropdown.component.html',
     styleUrl: './ng-multiselect-dropdown.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [ListFilterPipe, DROPDOWN_CONTROL_VALUE_ACCESSOR]
 })
 export class NgMultiselectDropdownComponent implements ControlValueAccessor {
@@ -70,6 +70,7 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         showCaret: true,
     };
     _settings: IDropdownSettings = Object.assign({}, this.defaultSettings);
+    @Input() dropdownMinWidth = '210px';
 
     @Input()
     public set singleSelection(val: boolean) {
@@ -145,9 +146,9 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
     @Output() filterChange: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() dropDownClose: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() select: EventEmitter<any> = new EventEmitter<any>();
-    @Output() deSelect: EventEmitter<ListItem> = new EventEmitter<ListItem>();
+    @Output() deSelect: EventEmitter<any> = new EventEmitter<any>();
     @Output() selectAll: EventEmitter<ListItem[]> = new EventEmitter<ListItem[]>();
-    @Output() deSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<ListItem>>();
+    @Output() deSelectAll: EventEmitter<any[]> = new EventEmitter<any[]>();
 
     private onTouchedCallback: () => void = noop;
     private onChangeCallback: (_: any) => void = noop;

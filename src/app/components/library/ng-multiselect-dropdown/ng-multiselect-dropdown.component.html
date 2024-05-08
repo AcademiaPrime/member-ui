@@ -1,3 +1,4 @@
+
 <div
     appClickOutside
     class="multiselect-dropdown"
@@ -43,18 +44,22 @@
                 }
             </div>
 
-            <span [ngClass]="{ 'dropdown-multiselect--active': _settings.defaultOpen }" style="padding-right:4px">
+            <span class="dropdown-multiselect">
                 @if ( !_settings.singleSelection && itemShowRemaining() > 0 ) {
-                    <span style="padding-right: 15px;">+{{ itemShowRemaining() }}</span>
+                    <span class="remaining-selections">+{{ itemShowRemaining() }}</span>
                 }
 
                 @if ( _settings.showCaret ) {
-                    <span class="dropdown-multiselect__caret"></span>
+                    <div class="dropdown-multiselect-caret" [class.dropdown-multiselect-caret--active]="_settings.defaultOpen"></div>
                 }
             </span>
         </span>
     </div>
-    <div class="dropdown-list" [hidden]="!_settings.defaultOpen">
+    <div
+        class="dropdown-list"
+        [style.min-width]="dropdownMinWidth"
+        [hidden]="!_settings.defaultOpen"
+    >
         <ul class="item1">
             @if ((_data.length > 0 || _settings.allowRemoteDataSearch) && !_settings.singleSelection && _settings.enableCheckAll && _settings.limitSelection===-1 ) {
                 <li (click)="toggleSelectAll()"
