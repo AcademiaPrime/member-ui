@@ -1,2 +1,41 @@
-<router-outlet></router-outlet>
-<!--<app-presentation></app-presentation>-->
+<!--<router-outlet></router-outlet>-->
+
+<div class="w-screen h-screen flex flex-col justify-center">
+    <form class="mx-auto">
+        <app-ng-multiselect-dropdown
+            name="multiselect"
+            placeholder="Search menu"
+            idField="item_id"
+            textField="item_text"
+            [itemsShowLimit]="1"
+            [enableCheckAll]="true"
+            [allowSearchFilter]="true"
+            [data]="cities"
+            [(ngModel)]="selectedItems"
+        ></app-ng-multiselect-dropdown>
+
+        <app-ng-multiselect-dropdown
+            name="multiselect"
+            placeholder="Search menu"
+            idField="item_id"
+            textField="item_text"
+            [itemsShowLimit]="1"
+            [enableCheckAll]="true"
+            [allowSearchFilter]="true"
+            [data]="cities"
+            [(ngModel)]="selectedItems"
+            (select)="onItemSelect($event)"
+            (deSelect)="onItemDeselect($event)"
+            (selectAll)="onSelectAll($event)"
+            (deSelectAll)="onDeselectAll()"
+        >
+            <!--            <ng-template #optionsTemplate let-item let-selected=selected>-->
+            <!--                <div class="px-3 py-2 flex items-center cursor-pointer" [class.bg-red-100]="selected">-->
+            <!--                    <img [src]="item.image" class="w-5 mr-2" />-->
+            <!--                    <span>{{item.item_text}}</span>-->
+            <!--                </div>-->
+            <!--            </ng-template>-->
+        </app-ng-multiselect-dropdown>
+    </form>
+
+</div>

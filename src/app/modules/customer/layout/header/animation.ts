@@ -12,7 +12,7 @@ const visible = {
     opacity: 1
 };
 
-const timing = '10s ease-in';
+const timing = '.3s ease-in';
 
 export const openClosedAnimations = [
     trigger('openClosed', [

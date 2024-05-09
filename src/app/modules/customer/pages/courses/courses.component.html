@@ -1,9 +1,9 @@
-<section class="py-32 max-w-screen-xl mx-auto flex gap-6">
-    <div class="w-96">
+<section class="py-32 max-w-screen-2xl mx-auto flex gap-6">
+    <div class="w-80">
         <app-sidebar></app-sidebar>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-4">
+    <div class="flex-1 grid grid-cols-3 gap-4">
         @for (course of courses(); track course.id) {
             <app-course [course]="course"></app-course>
         }
