@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // Models
@@ -11,6 +11,7 @@ import {
 } from './components/library/ng-multiselect-dropdown/ng-multiselect-dropdown.component';
 import {IDropdownSettings, ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
 import {FormsModule} from '@angular/forms';
+import {BehaviorSubject, debounceTime, skip} from 'rxjs';
 
 
 @Component({
@@ -40,7 +41,8 @@ export class AppComponent implements OnInit{
 
     constructor(
         private modalService: ModalService,
-        private store: Store
+        private store: Store,
+        private cdr: ChangeDetectorRef
     ) {}
 
     cities = [
@@ -208,8 +210,20 @@ export class AppComponent implements OnInit{
         'Resettle Casino Bets'
     ];
     selectedMenu = '';
+    observable$ = new BehaviorSubject<string>('');
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.observable$.pipe(debounceTime(500), skip(1)).subscribe(res => {
+            this.cities = JSON.parse(JSON.stringify(this.cities.filter(i => i.item_text.toLowerCase().includes((res.toLowerCase())))));
+            console.log('key search: ', this.cities);
+            this.cities.push({
+                item_id: 100,
+                item_text: 'Vietnam Vietnam2',
+                image: 'http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg',
+            });
+            this.cdr.markForCheck();
+        });
+    }
 
     onItemSelect(item: ListItem) {
         console.log('select one: ', item);
@@ -224,5 +238,9 @@ export class AppComponent implements OnInit{
     onDeselectAll() {
 
         console.log('deselect all:');
+    }
+
+    onSearch(keySearch: string) {
+        this.observable$.next(keySearch);
     }
 }

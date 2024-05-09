@@ -24,20 +24,27 @@
                             </span>
                         </div>
                     } @else {
-                        @for( item of selectedItems; track item[_settings.idField]; let k = $index) {
-                            @if ( k < _settings.itemsShowLimit ) {
-                                <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField] ?? item">
-                                    <span class="text">
-                                        <ng-template #defaultOptionSelectedTemplate>{{ item[_settings.textField] ?? item}}</ng-template>
+                        @if ( optionSelectedTemplateRef ) {
+                            @for( item of selectedItems; track item[_settings.idField]; let k = $index) {
+                                @if ( k < _settings.itemsShowLimit ) {
+                                    <div [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField] ?? item">
                                         <ng-container
-                                            [ngTemplateOutlet]="optionSelectedTemplateRef || defaultOptionSelectedTemplate"
-                                            [ngTemplateOutletContext]="{ $implicit:item }">
-                                        </ng-container>
-                                    </span>
-                                    @if ( !_settings.singleSelection ) {
-                                        <a (click)="onItemClick($event,item)">x</a>
-                                    }
-                                </div>
+                                            [ngTemplateOutlet]="optionSelectedTemplateRef"
+                                            [ngTemplateOutletContext]="{ $implicit:item }"
+                                        ></ng-container>
+                                    </div>
+                                }
+                            }
+                        } @else {
+                            @for( item of selectedItems; track item[_settings.idField]; let k = $index) {
+                                @if ( k < _settings.itemsShowLimit ) {
+                                    <div class="none-extra-template" [ngClass]="{'selected-item': !_settings.singleSelection }" [title]="item[_settings.textField] ?? item">
+                                        <span class="text">{{ item[_settings.textField] ?? item}}</span>
+                                        @if ( !_settings.singleSelection ) {
+                                            <a (click)="onItemClick($event,item)">x</a>
+                                        }
+                                    </div>
+                                }
                             }
                         }
                     }
@@ -77,10 +84,11 @@
                     <input
                         type="text"
                         aria-label="multiselect-search"
+                        name="searchBox"
                         [readOnly]="disabled"
                         [placeholder]="_settings.searchPlaceholderText"
                         [(ngModel)]="keySearch"
-                        (ngModelChange)="onFilterTextChange($event)">
+                        (ngModelChange)="onFilterTextChange(keySearch)">
                 </li>
             }
         </ul>
