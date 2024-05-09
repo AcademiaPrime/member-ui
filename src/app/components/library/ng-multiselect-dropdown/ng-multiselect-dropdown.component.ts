@@ -7,7 +7,7 @@ import {
     Input,
     Output,
     TemplateRef,
-    forwardRef, Provider
+    forwardRef, Provider, OnChanges, SimpleChanges
 } from '@angular/core';
 import {ClickOutsideDirective} from './click-outside.directive';
 import {IDropdownSettings, ListItem} from './multiselect.model';
@@ -138,23 +138,21 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
             this._data = JSON.parse(JSON.stringify(val));
         }
     }
-
-
     @ContentChild('optionsTemplate') optionsTemplateRef!: TemplateRef<any>;
-    @ContentChild('optionSelectedTemplate') optionSelectedTemplateRef: TemplateRef<DocumentFragment> | null = null;
+    @ContentChild('optionSelectedTemplate') optionSelectedTemplateRef!: TemplateRef<any>;
 
-    @Output() filterChange: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() dropDownClose: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() select: EventEmitter<any> = new EventEmitter<any>();
     @Output() deSelect: EventEmitter<any> = new EventEmitter<any>();
     @Output() selectAll: EventEmitter<ListItem[]> = new EventEmitter<ListItem[]>();
     @Output() deSelectAll: EventEmitter<any[]> = new EventEmitter<any[]>();
+    @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
     private onTouchedCallback: () => void = noop;
     private onChangeCallback: (_: any) => void = noop;
 
-    onFilterTextChange(item: any) {
-        this.filterChange.emit(item);
+    onFilterTextChange(keySearch: string) {
+        this.search.emit(keySearch);
     }
 
     constructor(
