@@ -2,6 +2,16 @@
 
 <div class="w-screen h-screen flex flex-col justify-center">
     <form class="mx-auto">
+        @if ( true ) {
+            {{enable}}
+            <app-ui-switch
+                name="first"
+                [checked]="true"
+                (change)="onChange($event)"
+            >
+            </app-ui-switch>
+        }
+
         @if ( false ) {
             <app-ng-multiselect-dropdown
                 name="single-template"
@@ -16,7 +26,7 @@
             ></app-ng-multiselect-dropdown>
         }
 
-        @if ( true ) {
+        @if ( false ) {
             <h1 class="text-3xl font-bold">Custom Template</h1>
             <app-ng-multiselect-dropdown
                 name="custom-template"
