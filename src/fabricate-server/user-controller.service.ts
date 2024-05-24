@@ -12,7 +12,6 @@ export class UserControllerService {
 
     constructor() {
         this._users = users as User[];
-        console.log('users: ', users);
     }
 
     login(userInfo: UserLoginRequestBody): Observable<User | null> {

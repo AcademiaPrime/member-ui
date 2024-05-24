@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {provideRouter} from '@angular/router';
 import {provideState, provideStore} from '@ngrx/store';
 import {provideStoreDevtools} from '@ngrx/store-devtools';
-import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import {provideEffects} from '@ngrx/effects';
 
 import {routes} from './app.routes';
@@ -14,11 +13,17 @@ import {userFeature} from '@states/authorization/authorization.reducer';
 import {cartFeature,} from '@states/cart/cart.reducer';
 import {layoutFeature} from '@states/layout/layout.reducer';
 import {AuthorizationEffect} from '@states/authorization/authorization.effect';
+import {coursesFeature} from '@states/courses/course.reducer';
+import {CourseEffect} from '@states/courses/course.effect';
+import {UiSwitchModule} from './components/library/ui-switch/ui-switch.module';
 
 
 export const appConfig: ApplicationConfig = {
     providers: [
         importProvidersFrom(HttpClientModule),
+        importProvidersFrom(UiSwitchModule.forRoot({
+            size: 'medium'
+        })),
         provideRouter(routes),
         provideAnimationsAsync(),
         provideStore(),
@@ -27,9 +32,9 @@ export const appConfig: ApplicationConfig = {
         provideState(cartFeature),
         provideState(userFeature),
         provideState(layoutFeature),
+        provideState(coursesFeature),
         provideEffects(AuthorizationEffect),
-        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-        provideStore({router: routerReducer}),
-        provideRouterStore()
+        provideEffects(CourseEffect),
+        provideStoreDevtools({ maxAge: 100, logOnly: !isDevMode() }),
     ]
 };

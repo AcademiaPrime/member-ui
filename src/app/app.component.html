@@ -1,2 +1,77 @@
-<router-outlet></router-outlet>
-<!--<app-presentation></app-presentation>-->
+<!--<router-outlet></router-outlet>-->
+
+<div class="w-screen h-screen flex flex-col justify-center">
+    <form class="mx-auto">
+        @if ( true ) {
+            {{enable}}
+            <app-ui-switch
+                name="first"
+                [checked]="true"
+                (change)="onChange($event)"
+            >
+            </app-ui-switch>
+        }
+
+        @if ( false ) {
+            <app-ng-multiselect-dropdown
+                name="single-template"
+                placeholder="Search menu"
+                idField="item_id"
+                textField="item_text"
+                [itemsShowLimit]="1"
+                [enableCheckAll]="true"
+                [allowSearchFilter]="true"
+                [data]="cities"
+                [(ngModel)]="selectedItems"
+            ></app-ng-multiselect-dropdown>
+        }
+
+        @if ( false ) {
+            <h1 class="text-3xl font-bold">Custom Template</h1>
+            <app-ng-multiselect-dropdown
+                name="custom-template"
+                placeholder="Search menu"
+                idField="item_id"
+                textField="item_text"
+                [singleSelection]="true"
+                [allowSearchFilter]="true"
+                [data]="cities"
+                [(ngModel)]="selectedItems"
+                (search)="onSearch($event)"
+            >
+                <ng-template #optionSelectedTemplate let-item>
+                    <div class="px-3 flex items-center cursor-pointer">
+                        <img [src]="item.image" class="w-5 mr-2" />
+                        <span>{{item.item_text}}</span>
+                    </div>
+                </ng-template>
+                <ng-template #optionsTemplate let-item let-selected=selected>
+                    <div class="px-3 py-2 flex items-center cursor-pointer" [class.bg-red-100]="selected">
+                        <img [src]="item.image" class="w-5 mr-2" />
+                        <span>{{item.item_text}}</span>
+                    </div>
+                </ng-template>
+            </app-ng-multiselect-dropdown>
+        }
+
+
+        @if ( false ) {
+            <h1 class="text-3xl font-bold">Search Event</h1>
+            <app-ng-multiselect-dropdown
+                name="custom-template"
+                placeholder="Search menu"
+                idField="item_id"
+                textField="item_text"
+                [itemsShowLimit]="3"
+                [enableCheckAll]="true"
+                [allowSearchFilter]="true"
+                [data]="cities"
+                [(ngModel)]="selectedItems"
+                (search)="onSearch($event)"
+            >
+            </app-ng-multiselect-dropdown>
+        }
+
+    </form>
+
+</div>
