@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    ChangeDetectorRef,
     Component,
     ContentChild,
     EventEmitter, HostListener,
     Input,
     Output,
     TemplateRef,
-    forwardRef, Provider, OnChanges, SimpleChanges
+    forwardRef, Provider
 } from '@angular/core';
 import {ClickOutsideDirective} from './click-outside.directive';
 import {IDropdownSettings, ListItem} from './multiselect.model';

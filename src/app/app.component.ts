@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // Models
@@ -9,7 +9,7 @@ import {Store} from '@ngrx/store';
 import {
     NgMultiselectDropdownComponent
 } from './components/library/ng-multiselect-dropdown/ng-multiselect-dropdown.component';
-import {IDropdownSettings, ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
+import {ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
 import {FormsModule} from '@angular/forms';
 import {BehaviorSubject, debounceTime, skip} from 'rxjs';
 
@@ -228,10 +228,10 @@ export class AppComponent implements OnInit{
     onItemSelect(item: ListItem) {
         console.log('select one: ', item);
     }
-    onItemDeselect(item: any) {
+    onItemDeselect(item: never) {
         console.log('deselect one: ', item);
     }
-    onSelectAll(items: any) {
+    onSelectAll(items: never) {
 
         console.log('select all:', items);
     }
