@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 // Models
@@ -230,10 +230,7 @@ export class AppComponent implements OnInit{
 
     onItemSelect(item: ListItem) {
     }
-    onItemDeselect(item: any) {
-    }
-    onSelectAll(items: any) {
-    }
+  
     onDeselectAll() {
 
     }
