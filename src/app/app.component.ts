@@ -9,9 +9,10 @@ import {Store} from '@ngrx/store';
 import {
     NgMultiselectDropdownComponent
 } from './components/library/ng-multiselect-dropdown/ng-multiselect-dropdown.component';
-import {ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
+import { ListItem} from './components/library/ng-multiselect-dropdown/multiselect.model';
 import {FormsModule} from '@angular/forms';
 import {BehaviorSubject, debounceTime, skip} from 'rxjs';
+import {UiSwitchComponent} from './components/library/ui-switch/ui-switch.component';
 
 
 @Component({
@@ -24,7 +25,8 @@ import {BehaviorSubject, debounceTime, skip} from 'rxjs';
         RouterLinkActive,
         FormsModule,
         // Components
-        NgMultiselectDropdownComponent
+        NgMultiselectDropdownComponent,
+        UiSwitchComponent,
 
     ],
     templateUrl: './app.component.html',
@@ -36,6 +38,7 @@ import {BehaviorSubject, debounceTime, skip} from 'rxjs';
 })
 export class AppComponent implements OnInit{
     title = 'member-ui';
+    enable = false;
 
     words: Word[] = [];
 
@@ -215,7 +218,7 @@ export class AppComponent implements OnInit{
     ngOnInit() {
         this.observable$.pipe(debounceTime(500), skip(1)).subscribe(res => {
             this.cities = JSON.parse(JSON.stringify(this.cities.filter(i => i.item_text.toLowerCase().includes((res.toLowerCase())))));
-            console.log('key search: ', this.cities);
+
             this.cities.push({
                 item_id: 100,
                 item_text: 'Vietnam Vietnam2',
@@ -226,21 +229,17 @@ export class AppComponent implements OnInit{
     }
 
     onItemSelect(item: ListItem) {
-        console.log('select one: ', item);
     }
-    onItemDeselect(item: never) {
-        console.log('deselect one: ', item);
-    }
-    onSelectAll(items: never) {
-
-        console.log('select all:', items);
-    }
+  
     onDeselectAll() {
 
-        console.log('deselect all:');
     }
 
     onSearch(keySearch: string) {
         this.observable$.next(keySearch);
+    }
+
+    onChange(event: unknown) {
+        console.log('event: ', event);
     }
 }

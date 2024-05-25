@@ -15,11 +15,15 @@ import {layoutFeature} from '@states/layout/layout.reducer';
 import {AuthorizationEffect} from '@states/authorization/authorization.effect';
 import {coursesFeature} from '@states/courses/course.reducer';
 import {CourseEffect} from '@states/courses/course.effect';
+import {UiSwitchModule} from './components/library/ui-switch/ui-switch.module';
 
 
 export const appConfig: ApplicationConfig = {
     providers: [
         importProvidersFrom(HttpClientModule),
+        importProvidersFrom(UiSwitchModule.forRoot({
+            size: 'medium'
+        })),
         provideRouter(routes),
         provideAnimationsAsync(),
         provideStore(),

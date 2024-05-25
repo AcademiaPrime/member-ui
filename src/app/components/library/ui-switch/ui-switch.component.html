@@ -1,0 +1,34 @@
+<button
+    type="button"
+    class="switch"
+    role="switch"
+    [attr.aria-checked]="reverse ? !checked : checked"
+    [attr.aria-label]="ariaLabel"
+    [class.checked]="reverse ? !checked : checked"
+    [class.disabled]="disabled"
+    [class.loading]="loading"
+    [class.switch-large]="size === 'large'"
+    [class.switch-medium]="size === 'medium'"
+    [class.switch-small]="size === 'small'"
+    [style.background-color]="getColor()"
+    [style.border-color]="getColor('borderColor')"
+>
+    @if ( checkedLabel || uncheckedLabel ) {
+        <label class="switch-pane">
+            <span
+                [attr.aria-label]="this.checkedLabel"
+                [class]="getLabelClass('checked')"
+                [style.color]="getColor('checkedTextColor')"
+            >{{ this.checkedLabel }}</span>
+            <span
+                [attr.aria-label]="this.uncheckedLabel"
+                [class]="getLabelClass('unchecked')"
+                [style.color]="getColor('uncheckedTextColor')"
+            >{{ this.uncheckedLabel }}</span>
+        </label>
+    }
+
+    <small [style.background]="getColor('switchColor')">
+        <ng-content></ng-content>
+    </small>
+</button>

@@ -12,7 +12,6 @@ export class CourseEffect implements OnInitEffects{
         return this.actions$.pipe(
             ofType('[Course/API] Load Courses'),
             exhaustMap(() => {
-                console.log('thomas');
                 return this.coursesService.getCoursesApi().pipe(
                     map(courses => {
                         return CourseActions.loadCoursesSuccessfully({courses: courses});

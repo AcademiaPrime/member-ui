@@ -7,6 +7,7 @@ import {LoginActions} from '@states/authorization/authorization.action';
 // Models
 import {UserLoginForm} from '@model/user.interface';
 import {NavigationService} from '../../services/navigation.service';
+import {UiSwitchComponent} from '../../../../components/library/ui-switch/ui-switch.component';
 
 @Component({
     selector: 'app-login',
@@ -15,7 +16,8 @@ import {NavigationService} from '../../services/navigation.service';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        UiSwitchComponent
     ],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'

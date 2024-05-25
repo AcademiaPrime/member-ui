@@ -28,7 +28,6 @@ export class WordComponent implements OnInit{
 
     ngOnInit() {
         this.wordInput.valueChanges.subscribe(res => {
-            console.log('res');
             this._word.verifyRemembering = res.toLowerCase() === this._word.word.toLowerCase();
         });
     }
@@ -42,6 +41,5 @@ export class WordComponent implements OnInit{
     }
 
     onSave() {
-        console.log('save: ', this.wordInput.value);
     }
 }

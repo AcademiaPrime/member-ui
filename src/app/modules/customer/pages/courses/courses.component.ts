@@ -25,7 +25,6 @@ export class CoursesComponent implements OnInit{
 
     ngOnInit() {
         this.coursesService.getCoursesApi().subscribe(res => {
-            console.log('res: ', res);
         });
     }
 

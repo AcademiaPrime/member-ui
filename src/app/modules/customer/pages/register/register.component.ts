@@ -34,7 +34,6 @@ export class RegisterComponent {
 
 
     onSubmit() {
-        console.log('login info: ', this.loginForm.value);
     }
 
 }

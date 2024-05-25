@@ -193,7 +193,6 @@ export class NgMultiselectDropdownComponent implements ControlValueAccessor {
         if (value !== undefined && value !== null) {
             if (this._settings.singleSelection) {
                 this.selectedItems = JSON.parse(JSON.stringify(value));
-                console.log('selected items: ', this.selectedItems);
             } else {
                 const _data = JSON.parse(JSON.stringify(value));
                 if (this._settings.limitSelection && this._settings.limitSelection > 0) {
