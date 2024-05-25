@@ -10,10 +10,10 @@ import {
     Optional,
     OnDestroy, Provider,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { UI_SWITCH_OPTIONS } from './ui-switch.token';
-import { UiSwitchModuleConfig } from './ui-switch.config';
-import { Observable, Subscription } from 'rxjs';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
+import {UI_SWITCH_OPTIONS} from './ui-switch.token';
+import {UiSwitchModuleConfig} from './ui-switch.config';
+import {Observable, Subscription} from 'rxjs';
 import {CommonModule} from '@angular/common';
 
 const UI_SWITCH_CONTROL_VALUE_ACCESSOR: Provider = {
@@ -202,8 +202,12 @@ export class UiSwitchComponent implements ControlValueAccessor, OnDestroy {
         this.disabled = isDisabled;
     }
 
-    private onTouchedCallback = (v: unknown) => {};
-    private onChangeCallback = (v: unknown) => {};
+    private onTouchedCallback = (v: unknown) => {
+        console.log(v);
+    };
+    private onChangeCallback = (v: unknown) => {
+        console.log(v);
+    };
 
     ngOnDestroy() {
         if (this._beforeChange) {
