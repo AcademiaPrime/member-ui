@@ -229,8 +229,9 @@ export class AppComponent implements OnInit{
     }
 
     onItemSelect(item: ListItem) {
+        console.log(item);
     }
-  
+
     onDeselectAll() {
 
     }

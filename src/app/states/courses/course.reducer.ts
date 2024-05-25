@@ -2,7 +2,6 @@ import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 import {Course} from '@model/course.interface';
 import {createFeature, createReducer, on} from '@ngrx/store';
 import * as CourseActions from './course.action';
-import {loadCoursesSuccessfully} from './course.action';
 
 export interface State extends  EntityState<Course> {
     // additional entities state properties
@@ -105,4 +104,4 @@ export const selectCourseTotal = selectTotal;
 export const coursesFeature = createFeature({
     name: 'courses',
     reducer: courseReducer
-})
+});
